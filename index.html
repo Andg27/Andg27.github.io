@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #2F4342;
+    --mint: #EBF3F2;
+    --white: #ffffff;
+    --ink: #111111;
+    --ink-soft: rgba(17,17,17,0.6);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body{
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+  }
+
+  section, footer{
+    scroll-margin-top: 0;
+  }
+
+  /* ===== SIDE NAV ===== */
+  .side-nav{
+    position: fixed;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 0;
+  }
+
+  .side-nav a{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition: background 0.3s ease;
+  }
+
+  .side-nav a svg{
+    width: 18px;
+    height: 18px;
+    stroke: var(--green);
+    fill:none;
+    stroke-width: 1.8;
+    transition: stroke 0.3s ease;
+  }
+
+  .side-nav a.active{
+    background: var(--green);
+  }
+
+  .side-nav a.active svg{
+    stroke: var(--white);
+  }
+
+  .side-nav .connector{
+    width: 1px;
+    height: 34px;
+    background: var(--green);
+    opacity: 0.35;
+  }
+
+  @media (max-width: 640px){
+    .side-nav{
+      left: 50%;
+      top: auto;
+      bottom: 18px;
+      transform: translateX(-50%);
+      flex-direction: row;
+    }
+    .side-nav .connector{
+      width: 34px;
+      height: 1px;
+    }
+    .side-nav a{ width: 40px; height:40px; }
+  }
+
+  /* ===== SECTION 1 — HOME ===== */
+  #home{
+    min-height: 100vh;
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6vh 8vw;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.55) 100%),
+      linear-gradient(135deg, #4a5f5d 0%, #2F4342 100%);
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+  }
+  /* Sostituisci il gradiente sopra con la tua foto:
+     background-image: url('foto.jpg');
+     background-size: cover;
+     background-position: center; */
+
+  #home .welcome{
+    align-self: flex-end;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  #home .name-block{
+    max-width: 60ch;
+  }
+
+  #home .name-block .greeting{
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 10px;
+  }
+
+  #home .name-block h1{
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    line-height: 1.05;
+  }
+
+  /* ===== SECTION 2 — ABOUT ===== */
+  #about{
+    min-height: 100vh;
+    background: var(--white);
+    display:flex;
+    align-items:center;
+    padding: 10vh 8vw 10vh calc(8vw + 60px);
+  }
+
+  #about .inner{
+    max-width: 68ch;
+  }
+
+  #about h2{
+    font-family:'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ink);
+    margin-bottom: 26px;
+  }
+
+  #about p{
+    font-size: 1.08rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+  }
+
+  /* ===== SECTION 3 — RESUME ===== */
+  #resume{
+    min-height: 100vh;
+    background: var(--mint);
+    display:flex;
+    align-items:center;
+    padding: 10vh 8vw 10vh calc(8vw + 60px);
+  }
+
+  #resume .inner{
+    max-width: 68ch;
+    width:100%;
+  }
+
+  #resume h2{
+    font-family:'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  .resume-row{
+    display:grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(17,17,17,0.12);
+    color: var(--ink);
+  }
+
+  .resume-row:last-child{
+    border-bottom: 1px solid rgba(17,17,17,0.12);
+  }
+
+  .resume-row .years{
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .resume-row .role{
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .resume-row .org{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  /* ===== SECTION 4 — CONTACT ===== */
+  #contact{
+    min-height: 55vh;
+    background: var(--white);
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content:center;
+    padding: 8vh 8vw 8vh calc(8vw + 60px);
+  }
+
+  #contact h2{
+    font-family:'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  #contact a{
+    font-size: 1.2rem;
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px solid var(--green);
+    padding-bottom: 3px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background: var(--mint);
+    padding: 40px 8vw;
+    text-align:center;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  footer strong{
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<nav class="side-nav" aria-label="Navigazione sezioni">
+  <a href="#home" data-section="home" class="active" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <div class="connector"></div>
+  <a href="#about" data-section="about" aria-label="Chi sono">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4" stroke-linecap="round"/><path d="M5 20c1.2-4 4-6 7-6s5.8 2 7 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <div class="connector"></div>
+  <a href="#resume" data-section="resume" aria-label="Resume">
+    <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3v4h4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 12h5M9.5 15.5h5" stroke-linecap="round"/></svg>
+  </a>
+  <div class="connector"></div>
+  <a href="#contact" data-section="contact" aria-label="Contatti">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.2"/><path d="M3.5 6.5l8.5 7 8.5-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</nav>
+
+<section id="home">
+  <span class="welcome">Benvenuti nel mio sito</span>
+  <div class="name-block">
+    <div class="greeting">Ciao, sono</div>
+    <h1>Andrea</h1>
+  </div>
+</section>
+
+<section id="about">
+  <div class="inner">
+    <h2>About me</h2>
+    <p>Laureato in Business Administration and Management presso l'Università Cattolica del Sacro Cuore di Milano, mi occupo di configurazione ERP Odoo e di sviluppo commerciale. Ho esperienza come assistente contabile e come junior business developer nel settore HO.RE.CA. Parlo italiano e cinese, con inglese di livello B2.</p>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="inner">
+    <h2>Resume</h2>
+    <div class="resume-row">
+      <div class="years">2024–oggi</div>
+      <div>
+        <div class="role">Junior Business Developer</div>
+        <div class="org">Settore HO.RE.CA.</div>
+      </div>
+    </div>
+    <div class="resume-row">
+      <div class="years">2023–2024</div>
+      <div>
+        <div class="role">Accounting Assistant</div>
+        <div class="org">Studio commercialista</div>
+      </div>
+    </div>
+    <div class="resume-row">
+      <div class="years">Formazione</div>
+      <div>
+        <div class="role">Laurea in Business Administration and Management</div>
+        <div class="org">Università Cattolica del Sacro Cuore, Milano</div>
+      </div>
+    </div>
+    <div class="resume-row">
+      <div class="years">Competenze</div>
+      <div>
+        <div class="role">Odoo ERP (CRM, vendite, acquisti, magazzino, contabilità)</div>
+        <div class="org">Italiano · Cinese · Inglese B2</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contatti</h2>
+  <a href="mailto:tuonome@email.com">tuonome@email.com</a>
+</section>
+
+<footer>
+  Grazie per aver visitato la pagina.<br>
+  <strong>© 2026 Andrea</strong> — Tutti i diritti riservati.
+</footer>
+
+<script>
+  const links = document.querySelectorAll('.side-nav a');
+  const sections = document.querySelectorAll('section[id]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        const id = entry.target.getAttribute('id');
+        links.forEach(link => {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
