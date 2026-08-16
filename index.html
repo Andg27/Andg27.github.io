@@ -418,23 +418,42 @@
 
 
 /* =========================================================
-   CONTACT
+   CONTACT + SNAKE
 ========================================================= */
 
 #contact {
-  min-height: 60vh;
+  min-height: 70vh;
 
   background: var(--white);
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
 
-  justify-content: center;
-
-  padding: 8vh 8vw 8vh calc(8vw + 60px);
+  padding: 10vh 8vw 10vh calc(8vw + 60px);
 }
 
-#contact h2 {
+
+/* CONTENITORE GENERALE */
+
+.contact-layout {
+  width: 100%;
+  max-width: 1100px;
+
+  display: grid;
+
+  grid-template-columns: minmax(250px, 1fr) minmax(320px, 460px);
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   COLONNA CONTATTI
+========================================================= */
+
+.contact-column h2 {
   font-family: 'Newsreader', serif;
 
   font-weight: 500;
@@ -445,27 +464,25 @@
 }
 
 
-/* CONTENITORE DEI CONTATTI */
-
 .contact-list {
   display: flex;
+
   flex-direction: column;
 
   gap: 32px;
 }
 
 
-/* SINGOLO CONTATTO */
-
 .contact-item {
   display: flex;
+
   align-items: center;
 
   gap: 26px;
 }
 
 
-/* PULSANTE QUADRATO */
+/* PULSANTI */
 
 .contact-button {
   width: 42px;
@@ -489,16 +506,12 @@
 }
 
 
-/* HOVER DEL PULSANTE */
-
 .contact-button:hover {
   background: var(--green);
 
   transform: translateY(-3px);
 }
 
-
-/* ICONA */
 
 .contact-button svg {
   width: 19px;
@@ -519,17 +532,16 @@
 }
 
 
-/* TESTO A DESTRA DEL PULSANTE */
+/* TESTO CONTATTI */
 
 .contact-text {
   display: flex;
+
   flex-direction: column;
 
   gap: 4px;
 }
 
-
-/* TITOLO: EMAIL / LINKEDIN / INSTAGRAM */
 
 .contact-title {
   font-size: 1.15rem;
@@ -540,34 +552,375 @@
 }
 
 
-/* CONTENUTO SOTTO IL TITOLO */
-
 .contact-value {
   font-size: 1rem;
 
   color: var(--ink-soft);
 
   text-decoration: none;
-
-  transition: color 0.3s ease;
 }
 
-
-/* LINK SOCIAL */
 
 .contact-value.social-link {
   color: var(--green);
 }
 
 
-/* HOVER SOCIAL */
-
 .contact-value.social-link:hover {
   text-decoration: underline;
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   SNAKE
+========================================================= */
+
+.snake-column {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* TITOLO */
+
+.snake-title {
+  width: min(420px, 100%);
+
+  font-family: 'Newsreader', serif;
+
+  font-weight: 500;
+
+  font-size: 2rem;
+
+  margin-bottom: 6px;
+}
+
+
+.snake-subtitle {
+  width: min(420px, 100%);
+
+  font-size: 0.82rem;
+
+  color: var(--ink-soft);
+
+  margin-bottom: 18px;
+}
+
+
+/* SCORE */
+
+.snake-score {
+  width: min(420px, 100%);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 14px;
+
+  font-size: 0.85rem;
+}
+
+
+.snake-score-value {
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   TAVOLA 15x15
+========================================================= */
+
+.snake-board-wrapper {
+  position: relative;
+
+  width: min(420px, 100%);
+
+  aspect-ratio: 1 / 1;
+}
+
+
+#snake-board {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(15, 1fr);
+
+  grid-template-rows: repeat(15, 1fr);
+
+  border: 2px solid var(--green);
+
+  overflow: hidden;
+}
+
+
+/* CELLE */
+
+.snake-cell {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* SCACCHIERA BIANCO / MINT */
+
+.snake-cell.light {
+  background: var(--white);
+}
+
+
+.snake-cell.dark {
+  background: var(--mint);
+}
+
+
+/* =========================================================
+   SERPENTE
+========================================================= */
+
+.snake-cell.snake {
+  background: var(--green);
+}
+
+
+.snake-cell.snake-head {
+  background: #1D2F2E;
+}
+
+
+/* =========================================================
+   MELA ROSSA
+========================================================= */
+
+.snake-cell.food {
+  position: relative;
+}
+
+
+/* Corpo rosso */
+
+.snake-cell.food::before {
+  content: "";
+
+  width: 58%;
+  height: 58%;
+
+  background: #C94A4A;
+
+  position: absolute;
+
+  left: 50%;
+  top: 55%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 10%;
+}
+
+
+/* Fogliolina verde */
+
+.snake-cell.food::after {
+  content: "";
+
+  width: 24%;
+  height: 18%;
+
+  background: #5C8065;
+
+  position: absolute;
+
+  left: 59%;
+  top: 26%;
+
+  transform: rotate(-30deg);
+
+  border-radius: 2px 8px 2px 8px;
+}
+
+
+/* =========================================================
+   OVERLAY START / GAME OVER
+========================================================= */
+
+.snake-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.90);
+
+  z-index: 10;
+
+  transition: opacity 0.3s ease;
+}
+
+
+.snake-overlay.hidden {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+.snake-overlay-box {
+  width: min(280px, 100%);
+
+  text-align: center;
+}
+
+
+.snake-overlay-title {
+  font-family: 'Newsreader', serif;
+
+  font-size: 2rem;
+
+  margin-bottom: 8px;
+}
+
+
+.snake-overlay-text {
+  font-size: 0.9rem;
+
+  color: var(--ink-soft);
+
+  margin-bottom: 18px;
+}
+
+
+/* INPUT NOME */
+
+.snake-name-input {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(17,17,17,0.25);
+
+  background: var(--white);
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.9rem;
+
+  outline: none;
+}
+
+
+.snake-name-input:focus {
+  border-color: var(--green);
+}
+
+
+/* BOTTONI */
+
+.snake-button {
+  border: 2px solid var(--green);
+
+  background: var(--white);
+
+  color: var(--green);
+
+  padding: 10px 18px;
+
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+.snake-button:hover {
+  background: var(--green);
+
+  color: var(--white);
+}
+
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
+.snake-best {
+  width: min(420px, 100%);
+
+  margin-top: 18px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(17,17,17,0.10);
+}
+
+
+.snake-best-title {
+  font-family: 'Newsreader', serif;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 10px;
+}
+
+
+.snake-best-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 5px 0;
+
+  font-size: 0.82rem;
+
+  color: var(--ink-soft);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #contact {
+    padding: 10vh 7vw;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+
+    gap: 70px;
+  }
+
+}
+
 
 @media (max-width: 640px) {
 
@@ -575,8 +928,8 @@
     padding: 10vh 7vw;
   }
 
-  .contact-list {
-    gap: 28px;
+  .contact-layout {
+    gap: 55px;
   }
 
   .contact-item {
@@ -596,9 +949,15 @@
     font-size: 0.95rem;
   }
 
+  .snake-title,
+  .snake-subtitle,
+  .snake-score,
+  .snake-best,
+  .snake-board-wrapper {
+    width: 100%;
+  }
+
 }
-
-
     /* =========================================================
        FOOTER
     ========================================================= */
@@ -1288,205 +1647,319 @@
 
 
 <!-- =========================================================
-     CONTACT
+     CONTACT + SNAKE
 ========================================================= -->
 
 <section id="contact">
 
-  <h2>
-    Contatti
-  </h2>
+  <div class="contact-layout">
 
 
-  <div class="contact-list">
+    <!-- =====================================================
+         CONTATTI
+    ====================================================== -->
+
+    <div class="contact-column">
+
+      <h2>
+        Contatti
+      </h2>
 
 
-    <!-- =======================
-         EMAIL
-    ======================== -->
-
-    <div class="contact-item">
-
-      <!-- Pulsante email -->
-
-      <a
-        class="contact-button"
-        href="mailto:andreagao27@gmail.com"
-        aria-label="Email"
-      >
-
-        <svg viewBox="0 0 24 24">
-
-          <rect
-            x="3"
-            y="5.5"
-            width="18"
-            height="13"
-            rx="1.2"
-          />
-
-          <path
-            d="M3.5 6.5l8.5 7 8.5-7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-        </svg>
-
-      </a>
+      <div class="contact-list">
 
 
-      <!-- Testo statico -->
+        <!-- =======================
+             EMAIL
+        ======================== -->
 
-      <div class="contact-text">
+        <div class="contact-item">
 
-        <div class="contact-title">
-          Email
+          <a
+            class="contact-button"
+            href="mailto:andreagao27@gmail.com"
+            aria-label="Email"
+          >
+
+            <svg viewBox="0 0 24 24">
+
+              <rect
+                x="3"
+                y="5.5"
+                width="18"
+                height="13"
+                rx="1.2"
+              />
+
+              <path
+                d="M3.5 6.5l8.5 7 8.5-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </a>
+
+
+          <div class="contact-text">
+
+            <div class="contact-title">
+              Email
+            </div>
+
+            <div class="contact-value">
+              andreagao27@gmail.com
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="contact-value">
-          andreagao27@gmail.com
+
+        <!-- =======================
+             LINKEDIN
+        ======================== -->
+
+        <div class="contact-item">
+
+          <a
+            class="contact-button"
+            href="https://www.linkedin.com/in/-andrea-gao"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+
+            <svg viewBox="0 0 24 24">
+
+              <path
+                d="M6 8v11"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M6 5.2v.1"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <path
+                d="M11 19v-6.2
+                   c0-2.2 1.2-3.5 3.1-3.5
+                   1.9 0 3 1.3 3 3.5V19"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M11 12v7"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
+          </a>
+
+
+          <div class="contact-text">
+
+            <div class="contact-title">
+              LinkedIn
+            </div>
+
+            <a
+              class="contact-value social-link"
+              href="https://www.linkedin.com/in/-andrea-gao"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/-andrea-gao
+            </a>
+
+          </div>
+
         </div>
+
+
+        <!-- =======================
+             INSTAGRAM
+        ======================== -->
+
+        <div class="contact-item">
+
+          <a
+            class="contact-button"
+            href="https://www.instagram.com/andregao27/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+
+            <svg viewBox="0 0 24 24">
+
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+              />
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
+
+            </svg>
+
+          </a>
+
+
+          <div class="contact-text">
+
+            <div class="contact-title">
+              Instagram
+            </div>
+
+            <a
+              class="contact-value social-link"
+              href="https://www.instagram.com/andregao27/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @andregao27
+            </a>
+
+          </div>
+
+        </div>
+
 
       </div>
 
     </div>
 
 
+    <!-- =====================================================
+         SNAKE
+    ====================================================== -->
 
-    <!-- =======================
-         LINKEDIN
-    ======================== -->
-
-    <div class="contact-item">
-
-      <!-- Pulsante LinkedIn -->
-
-      <a
-        class="contact-button"
-        href="https://www.linkedin.com/in/-andrea-gao"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-
-        <svg viewBox="0 0 24 24">
-
-          <path
-            d="M6 8v11"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M6 5.2v.1"
-            stroke-width="3"
-            stroke-linecap="round"
-          />
-
-          <path
-            d="M11 19v-6.2
-               c0-2.2 1.2-3.5 3.1-3.5
-               1.9 0 3 1.3 3 3.5V19"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-
-          <path
-            d="M11 12v7"
-            stroke-linecap="round"
-          />
-
-        </svg>
-
-      </a>
+    <div class="snake-column">
 
 
-      <!-- Testo -->
+      <div class="snake-title">
+        Snake
+      </div>
 
-      <div class="contact-text">
 
-        <div class="contact-title">
-          LinkedIn
-        </div>
+      <div class="snake-subtitle">
+        Mangia le mele e raggiungi il punteggio più alto.
+      </div>
 
-        <a
-          class="contact-value social-link"
-          href="https://www.linkedin.com/in/-andrea-gao"
-          target="_blank"
-          rel="noopener noreferrer"
+
+      <!-- SCORE -->
+
+      <div class="snake-score">
+
+        <span>
+          Score
+        </span>
+
+        <span
+          class="snake-score-value"
+          id="snake-score"
         >
-          linkedin.com/in/-andrea-gao
-        </a>
+          0
+        </span>
 
       </div>
 
-    </div>
 
+      <!-- TAVOLA -->
 
+      <div class="snake-board-wrapper">
 
-    <!-- =======================
-         INSTAGRAM
-    ======================== -->
-
-    <div class="contact-item">
-
-      <!-- Pulsante Instagram -->
-
-      <a
-        class="contact-button"
-        href="https://www.instagram.com/andregao27/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
-      >
-
-        <svg viewBox="0 0 24 24">
-
-          <rect
-            x="3"
-            y="3"
-            width="18"
-            height="18"
-            rx="5"
-          />
-
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          />
-
-          <circle
-            cx="17.5"
-            cy="6.5"
-            r="1"
-            fill="currentColor"
-            stroke="none"
-          />
-
-        </svg>
-
-      </a>
-
-
-      <!-- Testo -->
-
-      <div class="contact-text">
-
-        <div class="contact-title">
-          Instagram
+        <div id="snake-board">
         </div>
 
-        <a
-          class="contact-value social-link"
-          href="https://www.instagram.com/andregao27/"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        <!-- OVERLAY -->
+
+        <div
+          class="snake-overlay"
+          id="snake-overlay"
         >
-          @andregao27
-        </a>
+
+          <div class="snake-overlay-box">
+
+            <div
+              class="snake-overlay-title"
+              id="snake-overlay-title"
+            >
+              Snake
+            </div>
+
+            <div
+              class="snake-overlay-text"
+              id="snake-overlay-text"
+            >
+              Premi Start per iniziare.
+            </div>
+
+
+            <!-- INPUT NOME -->
+
+            <input
+              type="text"
+              id="snake-name"
+              class="snake-name-input"
+              placeholder="Il tuo nome"
+              maxlength="20"
+              autocomplete="off"
+              style="display: none;"
+            >
+
+
+            <!-- BOTTONE -->
+
+            <button
+              type="button"
+              id="snake-action"
+              class="snake-button"
+            >
+              Start
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
+
+
+      <!-- LEADERBOARD -->
+
+      <div class="snake-best">
+
+        <div class="snake-best-title">
+          High Scores
+        </div>
+
+        <div id="snake-leaderboard">
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1526,7 +1999,6 @@
 
     const sections = document.querySelectorAll('section[id]');
 
-
     const observer = new IntersectionObserver(
 
       (entries) => {
@@ -1536,7 +2008,6 @@
           if (entry.isIntersecting) {
 
             const id = entry.target.getAttribute('id');
-
 
             links.forEach(link => {
 
@@ -1559,12 +2030,777 @@
 
     );
 
-
     sections.forEach(section => {
 
       observer.observe(section);
 
     });
+
+  </script>
+
+
+  <!-- =====================================================
+       SNAKE JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* =====================================================
+       IMPOSTAZIONI
+    ====================================================== */
+
+    const BOARD_SIZE = 15;
+
+    const INITIAL_SPEED = 150;
+
+    const MAX_HIGH_SCORES = 5;
+
+
+    /* =====================================================
+       ELEMENTI HTML
+    ====================================================== */
+
+    const board = document.getElementById('snake-board');
+
+    const scoreElement = document.getElementById('snake-score');
+
+    const overlay = document.getElementById('snake-overlay');
+
+    const overlayTitle = document.getElementById('snake-overlay-title');
+
+    const overlayText = document.getElementById('snake-overlay-text');
+
+    const actionButton = document.getElementById('snake-action');
+
+    const nameInput = document.getElementById('snake-name');
+
+    const leaderboard = document.getElementById('snake-leaderboard');
+
+
+    /* =====================================================
+       VARIABILI DEL GIOCO
+    ====================================================== */
+
+    let snake = [];
+
+    let food = {};
+
+    let direction = {
+      x: 1,
+      y: 0
+    };
+
+    let nextDirection = {
+      x: 1,
+      y: 0
+    };
+
+    let score = 0;
+
+    let gameInterval = null;
+
+    let gameRunning = false;
+
+    let waitingForName = false;
+
+
+    /* =====================================================
+       CREAZIONE DELLA GRIGLIA
+    ====================================================== */
+
+    function createBoard() {
+
+      board.innerHTML = '';
+
+      for (let i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
+
+        const cell = document.createElement('div');
+
+        cell.classList.add('snake-cell');
+
+        const row = Math.floor(i / BOARD_SIZE);
+
+        const col = i % BOARD_SIZE;
+
+        if ((row + col) % 2 === 0) {
+
+          cell.classList.add('light');
+
+        } else {
+
+          cell.classList.add('dark');
+
+        }
+
+        board.appendChild(cell);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       POSIZIONE CASUALE DELLA MELA
+    ====================================================== */
+
+    function randomFoodPosition() {
+
+      const emptyCells = [];
+
+      for (let y = 0; y < BOARD_SIZE; y++) {
+
+        for (let x = 0; x < BOARD_SIZE; x++) {
+
+          const occupied = snake.some(segment => {
+
+            return segment.x === x && segment.y === y;
+
+          });
+
+          if (!occupied) {
+
+            emptyCells.push({
+              x: x,
+              y: y
+            });
+
+          }
+
+        }
+
+      }
+
+
+      if (emptyCells.length === 0) {
+
+        return;
+
+      }
+
+
+      const randomIndex = Math.floor(
+        Math.random() * emptyCells.length
+      );
+
+      food = emptyCells[randomIndex];
+
+    }
+
+
+    /* =====================================================
+       DISEGNA IL GIOCO
+    ====================================================== */
+
+    function drawGame() {
+
+      const cells = board.children;
+
+
+      /* RESET */
+
+      for (const cell of cells) {
+
+        cell.classList.remove(
+          'snake',
+          'snake-head',
+          'food'
+        );
+
+      }
+
+
+      /* SERPENTE */
+
+      snake.forEach((segment, index) => {
+
+        const cellIndex =
+          segment.y * BOARD_SIZE + segment.x;
+
+        const cell = cells[cellIndex];
+
+        if (!cell) return;
+
+
+        cell.classList.add('snake');
+
+
+        if (index === 0) {
+
+          cell.classList.add('snake-head');
+
+        }
+
+      });
+
+
+      /* MELA */
+
+      if (food) {
+
+        const foodIndex =
+          food.y * BOARD_SIZE + food.x;
+
+        const foodCell = cells[foodIndex];
+
+        if (foodCell) {
+
+          foodCell.classList.add('food');
+
+        }
+
+      }
+
+
+      /* SCORE */
+
+      scoreElement.textContent = score;
+
+    }
+
+
+    /* =====================================================
+       INIZIA GAME
+    ====================================================== */
+
+    function startGame() {
+
+      clearInterval(gameInterval);
+
+
+      snake = [
+        {
+          x: 7,
+          y: 7
+        },
+        {
+          x: 6,
+          y: 7
+        },
+        {
+          x: 5,
+          y: 7
+        }
+      ];
+
+
+      direction = {
+        x: 1,
+        y: 0
+      };
+
+
+      nextDirection = {
+        x: 1,
+        y: 0
+      };
+
+
+      score = 0;
+
+      gameRunning = true;
+
+      waitingForName = false;
+
+
+      randomFoodPosition();
+
+      drawGame();
+
+
+      overlay.classList.add('hidden');
+
+      nameInput.style.display = 'none';
+
+      nameInput.value = '';
+
+
+      actionButton.textContent = 'Start';
+
+
+      gameInterval = setInterval(
+        gameLoop,
+        INITIAL_SPEED
+      );
+
+    }
+
+
+    /* =====================================================
+       GAME LOOP
+    ====================================================== */
+
+    function gameLoop() {
+
+      if (!gameRunning) return;
+
+
+      direction = nextDirection;
+
+
+      const head = snake[0];
+
+
+      const newHead = {
+        x: head.x + direction.x,
+        y: head.y + direction.y
+      };
+
+
+      /* COLLISIONE CON I BORDI */
+
+      if (
+        newHead.x < 0 ||
+        newHead.x >= BOARD_SIZE ||
+        newHead.y < 0 ||
+        newHead.y >= BOARD_SIZE
+      ) {
+
+        endGame();
+
+        return;
+
+      }
+
+
+      /* COLLISIONE CON IL CORPO */
+
+      const hitsBody = snake.some(segment => {
+
+        return (
+          segment.x === newHead.x &&
+          segment.y === newHead.y
+        );
+
+      });
+
+
+      if (hitsBody) {
+
+        endGame();
+
+        return;
+
+      }
+
+
+      /* AGGIUNGI NUOVA TESTA */
+
+      snake.unshift(newHead);
+
+
+      /* MANGIA LA MELA */
+
+      if (
+        newHead.x === food.x &&
+        newHead.y === food.y
+      ) {
+
+        score++;
+
+        randomFoodPosition();
+
+      } else {
+
+        snake.pop();
+
+      }
+
+
+      drawGame();
+
+    }
+
+
+    /* =====================================================
+       GAME OVER
+    ====================================================== */
+
+    function endGame() {
+
+      gameRunning = false;
+
+      clearInterval(gameInterval);
+
+      waitingForName = true;
+
+
+      overlayTitle.textContent = 'Game Over';
+
+      overlayText.textContent =
+        `Hai mangiato ${score} ${score === 1 ? 'mela' : 'mele'}.`;
+
+
+      nameInput.style.display = 'block';
+
+      actionButton.textContent = 'Salva record';
+
+
+      overlay.classList.remove('hidden');
+
+
+      setTimeout(() => {
+
+        nameInput.focus();
+
+      }, 100);
+
+    }
+
+
+    /* =====================================================
+       HIGH SCORES
+       SALVATAGGIO LOCALE
+    ====================================================== */
+
+    function getHighScores() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem('andreaSnakeScores')
+        ) || [];
+
+      } catch (error) {
+
+        return [];
+
+      }
+
+    }
+
+
+    function saveHighScore() {
+
+      const name =
+        nameInput.value.trim();
+
+
+      if (!name) {
+
+        nameInput.focus();
+
+        return;
+
+      }
+
+
+      const scores = getHighScores();
+
+
+      scores.push({
+        name: name.substring(0, 20),
+        score: score
+      });
+
+
+      scores.sort((a, b) => {
+
+        return b.score - a.score;
+
+      });
+
+
+      const topScores =
+        scores.slice(0, MAX_HIGH_SCORES);
+
+
+      localStorage.setItem(
+        'andreaSnakeScores',
+        JSON.stringify(topScores)
+      );
+
+
+      renderLeaderboard();
+
+
+      waitingForName = false;
+
+
+      nameInput.style.display = 'none';
+
+      overlayTitle.textContent = 'Snake';
+
+      overlayText.textContent =
+        'Record salvato. Prova a batterlo!';
+
+      actionButton.textContent = 'Gioca ancora';
+
+    }
+
+
+    /* =====================================================
+       LEADERBOARD
+    ====================================================== */
+
+    function renderLeaderboard() {
+
+      const scores = getHighScores();
+
+
+      leaderboard.innerHTML = '';
+
+
+      if (scores.length === 0) {
+
+        const emptyMessage =
+          document.createElement('div');
+
+        emptyMessage.className =
+          'snake-best-row';
+
+        emptyMessage.innerHTML =
+          '<span>Nessun record</span><span>—</span>';
+
+        leaderboard.appendChild(emptyMessage);
+
+        return;
+
+      }
+
+
+      scores.forEach((entry, index) => {
+
+        const row =
+          document.createElement('div');
+
+        row.className =
+          'snake-best-row';
+
+
+        const name =
+          document.createElement('span');
+
+        name.textContent =
+          `${index + 1}. ${entry.name}`;
+
+
+        const scoreValue =
+          document.createElement('span');
+
+        scoreValue.textContent =
+          entry.score;
+
+
+        row.appendChild(name);
+
+        row.appendChild(scoreValue);
+
+
+        leaderboard.appendChild(row);
+
+      });
+
+    }
+
+
+    /* =====================================================
+       CAMBIO DIREZIONE
+    ====================================================== */
+
+    function changeDirection(x, y) {
+
+      if (!gameRunning) return;
+
+
+      /* IMPEDISCE DI TORNARE INDIETRO */
+
+      if (
+        x === -direction.x &&
+        y === -direction.y
+      ) {
+
+        return;
+
+      }
+
+
+      nextDirection = {
+        x: x,
+        y: y
+      };
+
+    }
+
+
+    /* =====================================================
+       TASTIERA
+    ====================================================== */
+
+    document.addEventListener(
+      'keydown',
+      (event) => {
+
+        const key = event.key.toLowerCase();
+
+
+        if (
+          key === 'arrowup' ||
+          key === 'w'
+        ) {
+
+          event.preventDefault();
+
+          changeDirection(0, -1);
+
+        }
+
+
+        else if (
+          key === 'arrowdown' ||
+          key === 's'
+        ) {
+
+          event.preventDefault();
+
+          changeDirection(0, 1);
+
+        }
+
+
+        else if (
+          key === 'arrowleft' ||
+          key === 'a'
+        ) {
+
+          event.preventDefault();
+
+          changeDirection(-1, 0);
+
+        }
+
+
+        else if (
+          key === 'arrowright' ||
+          key === 'd'
+        ) {
+
+          event.preventDefault();
+
+          changeDirection(1, 0);
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       PULSANTE START / SALVA / RIGIOCA
+    ====================================================== */
+
+    actionButton.addEventListener(
+      'click',
+      () => {
+
+        if (waitingForName) {
+
+          saveHighScore();
+
+          return;
+
+        }
+
+
+        startGame();
+
+      }
+    );
+
+
+    /* =====================================================
+       MOBILE — SWIPE
+    ====================================================== */
+
+    let touchStartX = 0;
+
+    let touchStartY = 0;
+
+
+    board.addEventListener(
+      'touchstart',
+      (event) => {
+
+        const touch = event.changedTouches[0];
+
+        touchStartX = touch.clientX;
+
+        touchStartY = touch.clientY;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    board.addEventListener(
+      'touchend',
+      (event) => {
+
+        if (!gameRunning) return;
+
+
+        const touch = event.changedTouches[0];
+
+        const dx =
+          touch.clientX - touchStartX;
+
+        const dy =
+          touch.clientY - touchStartY;
+
+
+        if (
+          Math.abs(dx) < 20 &&
+          Math.abs(dy) < 20
+        ) {
+
+          return;
+
+        }
+
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+
+          if (dx > 0) {
+
+            changeDirection(1, 0);
+
+          } else {
+
+            changeDirection(-1, 0);
+
+          }
+
+        } else {
+
+          if (dy > 0) {
+
+            changeDirection(0, 1);
+
+          } else {
+
+            changeDirection(0, -1);
+
+          }
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /* =====================================================
+       INIZIALIZZAZIONE
+    ====================================================== */
+
+    createBoard();
+
+    renderLeaderboard();
+
+    drawGame();
 
   </script>
 
