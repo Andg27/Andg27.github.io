@@ -417,106 +417,186 @@
     }
 
 
-    /* =========================================================
-       CONTACT
-    ========================================================= */
+/* =========================================================
+   CONTACT
+========================================================= */
 
-    #contact {
-      min-height: 55vh;
+#contact {
+  min-height: 60vh;
 
-      background: var(--white);
+  background: var(--white);
 
-      display: flex;
-      flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-      align-items: flex-start;
-      justify-content: center;
+  justify-content: center;
 
-      padding: 8vh 8vw 8vh calc(8vw + 60px);
-    }
+  padding: 8vh 8vw 8vh calc(8vw + 60px);
+}
 
-    #contact h2 {
-      font-family: 'Newsreader', serif;
+#contact h2 {
+  font-family: 'Newsreader', serif;
 
-      font-weight: 500;
+  font-weight: 500;
 
-      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
 
-      margin-bottom: 28px;
-    }
-
-
-    /* CONTENITORE CONTATTI */
-
-    .contact-links {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-    }
+  margin-bottom: 40px;
+}
 
 
-    /* PULSANTI SOCIAL / EMAIL */
+/* CONTENITORE DEI CONTATTI */
 
-    .contact-button {
-      width: 40px;
-      height: 40px;
+.contact-list {
+  display: flex;
+  flex-direction: column;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--white);
-
-      border: 2px solid var(--green);
-
-      text-decoration: none;
-
-      transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-    }
-
-    .contact-button:hover {
-      background: var(--green);
-
-      transform: translateY(-3px);
-    }
-
-    .contact-button svg {
-      width: 18px;
-      height: 18px;
-
-      stroke: var(--green);
-
-      fill: none;
-
-      stroke-width: 1.8;
-
-      transition: stroke 0.3s ease;
-    }
-
-    .contact-button:hover svg {
-      stroke: var(--white);
-    }
+  gap: 32px;
+}
 
 
-    /* EMAIL */
+/* SINGOLO CONTATTO */
 
-    .email-link {
-      margin-left: 8px;
+.contact-item {
+  display: flex;
+  align-items: center;
 
-      font-size: 1rem;
+  gap: 26px;
+}
 
-      color: var(--green);
 
-      text-decoration: none;
+/* PULSANTE QUADRATO */
 
-      border-bottom: 1px solid var(--green);
+.contact-button {
+  width: 42px;
+  height: 42px;
 
-      padding-bottom: 3px;
-    }
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--white);
+
+  border: 2px solid var(--green);
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* HOVER DEL PULSANTE */
+
+.contact-button:hover {
+  background: var(--green);
+
+  transform: translateY(-3px);
+}
+
+
+/* ICONA */
+
+.contact-button svg {
+  width: 19px;
+  height: 19px;
+
+  stroke: var(--green);
+
+  fill: none;
+
+  stroke-width: 1.8;
+
+  transition: stroke 0.3s ease;
+}
+
+
+.contact-button:hover svg {
+  stroke: var(--white);
+}
+
+
+/* TESTO A DESTRA DEL PULSANTE */
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+
+/* TITOLO: EMAIL / LINKEDIN / INSTAGRAM */
+
+.contact-title {
+  font-size: 1.15rem;
+
+  font-weight: 600;
+
+  color: var(--ink);
+}
+
+
+/* CONTENUTO SOTTO IL TITOLO */
+
+.contact-value {
+  font-size: 1rem;
+
+  color: var(--ink-soft);
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+
+/* LINK SOCIAL */
+
+.contact-value.social-link {
+  color: var(--green);
+}
+
+
+/* HOVER SOCIAL */
+
+.contact-value.social-link:hover {
+  text-decoration: underline;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 640px) {
+
+  #contact {
+    padding: 10vh 7vw;
+  }
+
+  .contact-list {
+    gap: 28px;
+  }
+
+  .contact-item {
+    gap: 20px;
+  }
+
+  .contact-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-title {
+    font-size: 1.05rem;
+  }
+
+  .contact-value {
+    font-size: 0.95rem;
+  }
+
+}
 
 
     /* =========================================================
@@ -951,7 +1031,7 @@
         <div class="resume-item">
 
           <div class="resume-years">
-            Aprile 2025 – Aprile 2026
+            Apr 2025 – Apr 2026
           </div>
 
           <div>
@@ -978,7 +1058,7 @@
         <div class="resume-item">
 
           <div class="resume-years">
-            Novembre 2024 – Aprile 2025
+            Nov 2024 – Apr 2025
           </div>
 
           <div>
@@ -1199,52 +1279,48 @@
   </section>
 
 
-  <!-- =========================================================
-       CONTACT
-  ========================================================== -->
+<!-- =========================================================
+     CONTACT
+========================================================= -->
 
-  <section id="contact">
+<section id="contact">
 
-    <h2>
-      Contatti
-    </h2>
-
-
-    <div class="contact-links">
+  <h2>
+    Contatti
+  </h2>
 
 
-      <!-- INSTAGRAM -->
+  <div class="contact-list">
+
+
+    <!-- =======================
+         EMAIL
+    ======================== -->
+
+    <div class="contact-item">
+
+      <!-- Pulsante email -->
 
       <a
         class="contact-button"
-        href="https://www.instagram.com/andregao27/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Instagram"
+        href="mailto:andreagao27@gmail.com"
+        aria-label="Email"
       >
 
         <svg viewBox="0 0 24 24">
 
           <rect
             x="3"
-            y="3"
+            y="5.5"
             width="18"
-            height="18"
-            rx="5"
+            height="13"
+            rx="1.2"
           />
 
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-          />
-
-          <circle
-            cx="17.5"
-            cy="6.5"
-            r="1"
-            fill="currentColor"
-            stroke="none"
+          <path
+            d="M3.5 6.5l8.5 7 8.5-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
 
         </svg>
@@ -1252,11 +1328,35 @@
       </a>
 
 
-      <!-- LINKEDIN -->
+      <!-- Testo statico -->
+
+      <div class="contact-text">
+
+        <div class="contact-title">
+          Email
+        </div>
+
+        <div class="contact-value">
+          andreagao27@gmail.com
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================
+         LINKEDIN
+    ======================== -->
+
+    <div class="contact-item">
+
+      <!-- Pulsante LinkedIn -->
 
       <a
         class="contact-button"
-        href="https://www.linkedin.com/in/-andrea-gao"
+        href="https://www.linkedin.com/in/TUO-USERNAME/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
@@ -1293,28 +1393,67 @@
       </a>
 
 
-      <!-- EMAIL -->
+      <!-- Testo -->
+
+      <div class="contact-text">
+
+        <div class="contact-title">
+          LinkedIn
+        </div>
+
+        <a
+          class="contact-value social-link"
+          href="https://www.linkedin.com/in/TUO-USERNAME/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn Profile
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================
+         INSTAGRAM
+    ======================== -->
+
+    <div class="contact-item">
+
+      <!-- Pulsante Instagram -->
 
       <a
         class="contact-button"
-        href="mailto:andreagao27@gmail.com"
-        aria-label="Email"
+        href="https://www.instagram.com/andreagao27/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
       >
 
         <svg viewBox="0 0 24 24">
 
           <rect
             x="3"
-            y="5.5"
+            y="3"
             width="18"
-            height="13"
-            rx="1.2"
+            height="18"
+            rx="5"
           />
 
-          <path
-            d="M3.5 6.5l8.5 7 8.5-7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+          />
+
+          <circle
+            cx="17.5"
+            cy="6.5"
+            r="1"
+            fill="currentColor"
+            stroke="none"
           />
 
         </svg>
@@ -1322,19 +1461,31 @@
       </a>
 
 
-      <!-- EMAIL SCRITTA -->
+      <!-- Testo -->
 
-      <a
-        class="email-link"
-        href="mailto:andreagao27@gmail.com"
-      >
-        andreagao27@gmail.com
-      </a>
+      <div class="contact-text">
 
+        <div class="contact-title">
+          Instagram
+        </div>
+
+        <a
+          class="contact-value social-link"
+          href="https://www.instagram.com/andreagao27/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @andreagao27
+        </a>
+
+      </div>
 
     </div>
 
-  </section>
+
+  </div>
+
+</section>
 
 
   <!-- =========================================================
