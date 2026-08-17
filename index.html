@@ -470,7 +470,7 @@
     ========================================================= */
 
     #contact {
-      min-height: 70vh;
+      min-height: 55vh;
 
       background: var(--white);
 
@@ -478,7 +478,7 @@
 
       align-items: center;
 
-      padding: 10vh 8vw 10vh calc(8vw + 60px);
+      padding: 6vh 8vw 6vh calc(8vw + 60px);
     }
 
     /* FIX: la seconda colonna ora ha un massimo più contenuto
@@ -497,7 +497,12 @@
 
       gap: 70px;
 
-      align-items: center;
+      /* "stretch" (invece di "center") fa sì che entrambe le
+         colonne abbiano la STESSA altezza — quella della colonna
+         più alta tra le due — e partano allineate in cima. Questo
+         è ciò che permette a "Contact" e "Snake" di allinearsi
+         in alto, e al contenuto di poi distribuirsi fino in fondo. */
+      align-items: stretch;
     }
 
 
