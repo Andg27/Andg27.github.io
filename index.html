@@ -481,7 +481,9 @@
       padding: 10vh 8vw 10vh calc(8vw + 60px);
     }
 
-
+    /* FIX: la seconda colonna ora ha un massimo più contenuto
+       (360px invece di 460px) così Snake resta proporzionato
+       e non spinge il layout troppo largo. */
     .contact-layout {
       width: 100%;
 
@@ -491,7 +493,7 @@
 
       grid-template-columns:
         minmax(250px, 1fr)
-        minmax(320px, 460px);
+        minmax(300px, 360px);
 
       gap: 100px;
 
@@ -637,7 +639,7 @@
 
 
     .snake-title {
-      width: min(400px, 100%);
+      width: min(340px, 100%);
 
       font-family: 'Newsreader', serif;
 
@@ -650,7 +652,7 @@
 
 
     .snake-subtitle {
-      width: min(400px, 100%);
+      width: min(340px, 100%);
 
       font-size: 0.82rem;
 
@@ -663,7 +665,7 @@
     /* SCORE */
 
     .snake-score {
-      width: min(400px, 100%);
+      width: min(340px, 100%);
 
       display: flex;
 
@@ -683,11 +685,12 @@
 
 
     /* GAME WRAPPER */
-
+    /* FIX dimensione: da 400px a 340px, così Snake è "appropriato"
+       e non troppo grande accanto alla colonna contatti. */
     .snake-board-wrapper {
       position: relative;
 
-      width: min(400px, 100%);
+      width: min(340px, 100%);
 
       aspect-ratio: 1 / 1;
 
@@ -695,51 +698,22 @@
     }
 
 
-    /* 10x10 BOARD */
+    /* =========================================================
+       FIX PRINCIPALE — CANVAS NON RIEMPIVA IL CONTENITORE
 
-    #snake-board {
+       Un <canvas> senza regole CSS ha una dimensione di default
+       del browser (300x150px), indipendente dal div che lo
+       contiene. Questa regola dice: "riempi al 100% larghezza e
+       altezza del tuo genitore (.snake-board-wrapper)".
+       display:block toglie lo spazio bianco extra che i browser
+       aggiungono sotto agli elementi "inline" come canvas/img.
+    ========================================================= */
+
+    #snake-canvas {
+      display: block;
+
       width: 100%;
-
       height: 100%;
-
-      display: grid;
-
-      grid-template-columns: repeat(10, 1fr);
-
-      grid-template-rows: repeat(10, 1fr);
-
-      border: 2px solid var(--green);
-
-      overflow: hidden;
-    }
-
-
-    /* BOARD CELLS */
-
-    .snake-cell {
-      position: relative;
-    }
-
-
-    .snake-cell.light {
-      background: var(--white);
-    }
-
-
-    .snake-cell.dark {
-      background: var(--mint);
-    }
-
-
-    /* These classes are kept for structure and debugging. */
-
-    .snake-cell.snake {
-      background: var(--green);
-    }
-
-
-    .snake-cell.snake-head {
-      background: var(--snake-head);
     }
 
 
@@ -861,7 +835,7 @@
     ========================================================= */
 
     .snake-best {
-      width: min(400px, 100%);
+      width: min(340px, 100%);
 
       margin-top: 18px;
 
@@ -3040,11 +3014,29 @@
 
     /* =====================================================
        KEYBOARD CONTROLS
+
+       FIX: prima questo listener era "cieco" — ascoltava
+       QUALSIASI tasto premuto in tutta la pagina, anche mentre
+       l'utente stava scrivendo il proprio nome nell'input di
+       fine partita. Per questo A/S/D/W (usati anche per muovere
+       il serpente) venivano "rubati" dal gioco invece di finire
+       nel campo di testo.
+
+       La riga aggiunta subito sotto controlla: "l'elemento su
+       cui sto scrivendo in questo momento (document.activeElement)
+       è per caso il campo nome?" Se sì, usciamo subito dalla
+       funzione con return, senza toccare i tasti: così l'utente
+       può digitare liberamente qualsiasi lettera, incluse a/s/d/w.
     ===================================================== */
 
     document.addEventListener(
       'keydown',
       (event) => {
+
+        if (document.activeElement === nameInput) {
+          return;
+        }
+
 
         const key =
           event.key.toLowerCase();
