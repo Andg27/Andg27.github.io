@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -15,10 +15,11 @@
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
+
   <style>
 
     /* =========================================================
-       COLORI GENERALI
+       COLORS
     ========================================================= */
 
     :root {
@@ -27,6 +28,10 @@
       --white: #ffffff;
       --ink: #111111;
       --ink-soft: rgba(17,17,17,0.6);
+
+      --snake-red: #C94A4A;
+      --snake-leaf: #5C8065;
+      --snake-head: #1D2F2E;
     }
 
 
@@ -57,8 +62,10 @@
 
     .side-nav {
       position: fixed;
+
       left: 32px;
       top: 50%;
+
       transform: translateY(-50%);
 
       z-index: 100;
@@ -68,11 +75,13 @@
       align-items: center;
     }
 
+
     .side-nav a {
       width: 46px;
       height: 46px;
 
       background: var(--white);
+
       border: 2px solid var(--green);
 
       display: flex;
@@ -86,9 +95,11 @@
         transform 0.3s ease;
     }
 
+
     .side-nav a:hover {
       transform: scale(1.05);
     }
+
 
     .side-nav a svg {
       width: 18px;
@@ -96,24 +107,29 @@
 
       stroke: var(--green);
       fill: none;
+
       stroke-width: 1.8;
 
       transition: stroke 0.3s ease;
     }
 
+
     .side-nav a.active {
       background: var(--green);
     }
 
+
     .side-nav a.active svg {
       stroke: var(--white);
     }
+
 
     .side-nav .connector {
       width: 1px;
       height: 34px;
 
       background: var(--green);
+
       opacity: 0.35;
     }
 
@@ -136,21 +152,26 @@
       background: url('home.jpg') center / cover no-repeat;
     }
 
+
     #home .welcome {
       align-self: flex-end;
 
       font-family: 'Inter', sans-serif;
 
       font-size: 0.85rem;
+
       letter-spacing: 0.18em;
+
       text-transform: uppercase;
 
       opacity: 0.85;
     }
 
+
     #home .name-block {
       max-width: 60ch;
     }
+
 
     #home .name-block .greeting {
       font-size: 1rem;
@@ -159,6 +180,7 @@
 
       margin-bottom: 10px;
     }
+
 
     #home .name-block h1 {
       font-family: 'Newsreader', serif;
@@ -186,10 +208,13 @@
       padding: 10vh 8vw 10vh calc(8vw + 60px);
     }
 
+
     #about .inner {
       max-width: 900px;
+
       width: 100%;
     }
+
 
     #about h2 {
       font-family: 'Newsreader', serif;
@@ -201,7 +226,6 @@
       margin-bottom: 26px;
     }
 
-    /* DESCRIZIONE */
 
     .about-description {
       max-width: 80ch;
@@ -216,7 +240,7 @@
     }
 
 
-    /* INFORMAZIONI PERSONALI */
+    /* PERSONAL INFORMATION */
 
     .personal-info {
       display: grid;
@@ -224,16 +248,21 @@
       grid-template-columns: 1fr 1fr;
 
       column-gap: 80px;
+
       row-gap: 28px;
 
       max-width: 800px;
     }
 
+
     .info-item {
       display: flex;
+
       flex-direction: column;
+
       gap: 5px;
     }
+
 
     .info-label {
       font-size: 0.75rem;
@@ -244,6 +273,7 @@
 
       color: var(--ink-soft);
     }
+
 
     .info-value {
       font-size: 0.98rem;
@@ -262,15 +292,19 @@
       background: var(--mint);
 
       display: flex;
+
       align-items: center;
 
       padding: 10vh 8vw 10vh calc(8vw + 60px);
     }
 
+
     #resume .inner {
       max-width: 900px;
+
       width: 100%;
     }
+
 
     #resume h2 {
       font-family: 'Newsreader', serif;
@@ -283,15 +317,17 @@
     }
 
 
-    /* CATEGORIE RESUME */
+    /* RESUME CATEGORY */
 
     .resume-category {
       margin-bottom: 55px;
     }
 
+
     .resume-category:last-child {
       margin-bottom: 0;
     }
+
 
     .resume-category h3 {
       font-family: 'Newsreader', serif;
@@ -304,7 +340,7 @@
     }
 
 
-    /* SINGOLA ESPERIENZA */
+    /* RESUME ITEM */
 
     .resume-item {
       display: grid;
@@ -316,6 +352,7 @@
       margin-bottom: 24px;
     }
 
+
     .resume-years {
       font-size: 0.85rem;
 
@@ -323,6 +360,7 @@
 
       line-height: 1.5;
     }
+
 
     .resume-role {
       font-size: 1rem;
@@ -332,6 +370,7 @@
       margin-bottom: 4px;
     }
 
+
     .resume-place {
       font-size: 0.92rem;
 
@@ -339,6 +378,7 @@
 
       margin-bottom: 8px;
     }
+
 
     .resume-description {
       font-size: 0.92rem;
@@ -353,12 +393,16 @@
 
     /* SKILLS */
 
-.skills-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
+    .skills-list {
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      gap: 10px;
+    }
+
 
     .skill {
       font-size: 0.9rem;
@@ -371,7 +415,7 @@
     }
 
 
-    /* LINGUE */
+    /* LANGUAGES */
 
     .languages {
       display: grid;
@@ -381,11 +425,13 @@
       gap: 30px;
     }
 
+
     .language-name {
       font-weight: 600;
 
       margin-bottom: 5px;
     }
+
 
     .language-level {
       font-size: 0.88rem;
@@ -394,7 +440,7 @@
     }
 
 
-    /* HOBBY */
+    /* HOBBIES */
 
     .hobbies {
       display: flex;
@@ -404,11 +450,13 @@
       gap: 12px;
     }
 
+
     .hobby {
       font-size: 0.92rem;
 
       color: var(--ink-soft);
     }
+
 
     .hobby:not(:last-child)::after {
       content: "·";
@@ -417,547 +465,434 @@
     }
 
 
-/* =========================================================
-   CONTACT + SNAKE
-========================================================= */
+    /* =========================================================
+       CONTACT
+    ========================================================= */
 
-#contact {
-  min-height: 70vh;
+    #contact {
+      min-height: 70vh;
 
-  background: var(--white);
+      background: var(--white);
 
-  display: flex;
-  align-items: center;
+      display: flex;
 
-  padding: 10vh 8vw 10vh calc(8vw + 60px);
-}
+      align-items: center;
 
+      padding: 10vh 8vw 10vh calc(8vw + 60px);
+    }
 
-/* CONTENITORE GENERALE */
 
-.contact-layout {
-  width: 100%;
-  max-width: 1100px;
+    .contact-layout {
+      width: 100%;
 
-  display: grid;
+      max-width: 1100px;
 
-  grid-template-columns: minmax(250px, 1fr) minmax(320px, 460px);
+      display: grid;
 
-  gap: 100px;
+      grid-template-columns:
+        minmax(250px, 1fr)
+        minmax(320px, 460px);
 
-  align-items: center;
-}
+      gap: 100px;
 
+      align-items: center;
+    }
 
-/* =========================================================
-   COLONNA CONTATTI
-========================================================= */
 
-.contact-column h2 {
-  font-family: 'Newsreader', serif;
+    /* CONTACT COLUMN */
 
-  font-weight: 500;
+    .contact-column h2 {
+      font-family: 'Newsreader', serif;
 
-  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      font-weight: 500;
 
-  margin-bottom: 40px;
-}
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
 
+      margin-bottom: 40px;
+    }
 
-.contact-list {
-  display: flex;
 
-  flex-direction: column;
+    .contact-list {
+      display: flex;
 
-  gap: 32px;
-}
+      flex-direction: column;
 
+      gap: 32px;
+    }
 
-.contact-item {
-  display: flex;
 
-  align-items: center;
+    .contact-item {
+      display: flex;
 
-  gap: 26px;
-}
+      align-items: center;
 
+      gap: 26px;
+    }
 
-/* PULSANTI */
 
-.contact-button {
-  width: 42px;
-  height: 42px;
+    /* CONTACT BUTTON */
 
-  flex-shrink: 0;
+    .contact-button {
+      width: 42px;
+      height: 42px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+      flex-shrink: 0;
 
-  background: var(--white);
+      display: flex;
 
-  border: 2px solid var(--green);
+      align-items: center;
 
-  text-decoration: none;
+      justify-content: center;
 
-  transition:
-    background 0.3s ease,
-    transform 0.3s ease;
-}
+      background: var(--white);
 
+      border: 2px solid var(--green);
 
-.contact-button:hover {
-  background: var(--green);
+      text-decoration: none;
 
-  transform: translateY(-3px);
-}
+      transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+    }
 
 
-.contact-button svg {
-  width: 19px;
-  height: 19px;
+    .contact-button:hover {
+      background: var(--green);
 
-  stroke: var(--green);
+      transform: translateY(-3px);
+    }
 
-  fill: none;
 
-  stroke-width: 1.8;
+    .contact-button svg {
+      width: 19px;
+      height: 19px;
 
-  transition: stroke 0.3s ease;
-}
+      stroke: var(--green);
 
+      fill: none;
 
-.contact-button:hover svg {
-  stroke: var(--white);
-}
+      stroke-width: 1.8;
 
+      transition: stroke 0.3s ease;
+    }
 
-/* TESTO CONTATTI */
 
-.contact-text {
-  display: flex;
+    .contact-button:hover svg {
+      stroke: var(--white);
+    }
 
-  flex-direction: column;
 
-  gap: 4px;
-}
+    /* CONTACT TEXT */
 
+    .contact-text {
+      display: flex;
 
-.contact-title {
-  font-size: 1.15rem;
+      flex-direction: column;
 
-  font-weight: 600;
+      gap: 4px;
+    }
 
-  color: var(--ink);
-}
 
+    .contact-title {
+      font-size: 1.15rem;
 
-.contact-value {
-  font-size: 1rem;
+      font-weight: 600;
 
-  color: var(--ink-soft);
+      color: var(--ink);
+    }
 
-  text-decoration: none;
-}
 
+    .contact-value {
+      font-size: 1rem;
 
-.contact-value.social-link {
-  color: var(--green);
-}
+      color: var(--ink-soft);
 
+      text-decoration: none;
+    }
 
-.contact-value.social-link:hover {
-  text-decoration: underline;
-}
 
+    .contact-value.social-link {
+      color: var(--green);
+    }
 
-/* =========================================================
-   SNAKE
-========================================================= */
 
-.snake-column {
-  width: 100%;
+    .contact-value.social-link:hover {
+      text-decoration: underline;
+    }
 
-  display: flex;
 
-  flex-direction: column;
+    /* =========================================================
+       SNAKE
+    ========================================================= */
 
-  align-items: center;
-}
+    .snake-column {
+      width: 100%;
 
+      display: flex;
 
-/* TITOLO */
+      flex-direction: column;
 
-.snake-title {
-  width: min(420px, 100%);
+      align-items: center;
+    }
 
-  font-family: 'Newsreader', serif;
 
-  font-weight: 500;
+    .snake-title {
+      width: min(400px, 100%);
 
-  font-size: 2rem;
+      font-family: 'Newsreader', serif;
 
-  margin-bottom: 6px;
-}
+      font-weight: 500;
 
+      font-size: 2rem;
 
-.snake-subtitle {
-  width: min(420px, 100%);
+      margin-bottom: 6px;
+    }
 
-  font-size: 0.82rem;
 
-  color: var(--ink-soft);
+    .snake-subtitle {
+      width: min(400px, 100%);
 
-  margin-bottom: 18px;
-}
+      font-size: 0.82rem;
 
+      color: var(--ink-soft);
 
-/* SCORE */
+      margin-bottom: 18px;
+    }
 
-.snake-score {
-  width: min(420px, 100%);
 
-  display: flex;
+    /* SCORE */
 
-  justify-content: space-between;
+    .snake-score {
+      width: min(400px, 100%);
 
-  align-items: center;
+      display: flex;
 
-  margin-bottom: 14px;
+      justify-content: space-between;
 
-  font-size: 0.85rem;
-}
+      align-items: center;
 
+      margin-bottom: 14px;
 
-.snake-score-value {
-  font-weight: 600;
-}
+      font-size: 0.85rem;
+    }
 
 
-/* =========================================================
-   TAVOLA 15x15
-========================================================= */
+    .snake-score-value {
+      font-weight: 600;
+    }
 
-.snake-board-wrapper {
-  position: relative;
 
-  width: min(420px, 100%);
+    /* GAME WRAPPER */
 
-  aspect-ratio: 1 / 1;
-}
+    .snake-board-wrapper {
+      position: relative;
 
+      width: min(400px, 100%);
 
-#snake-board {
-  width: 100%;
-  height: 100%;
+      aspect-ratio: 1 / 1;
 
-  display: grid;
+      touch-action: none;
+    }
 
-  grid-template-columns: repeat(15, 1fr);
 
-  grid-template-rows: repeat(15, 1fr);
+    /* 10x10 BOARD */
 
-  border: 2px solid var(--green);
+    #snake-board {
+      width: 100%;
 
-  overflow: hidden;
-}
+      height: 100%;
 
+      display: grid;
 
-/* CELLE */
+      grid-template-columns: repeat(10, 1fr);
 
-.snake-cell {
-  position: relative;
+      grid-template-rows: repeat(10, 1fr);
 
-  display: flex;
+      border: 2px solid var(--green);
 
-  align-items: center;
+      overflow: hidden;
+    }
 
-  justify-content: center;
-}
 
+    /* BOARD CELLS */
 
-/* SCACCHIERA BIANCO / MINT */
+    .snake-cell {
+      position: relative;
+    }
 
-.snake-cell.light {
-  background: var(--white);
-}
 
+    .snake-cell.light {
+      background: var(--white);
+    }
 
-.snake-cell.dark {
-  background: var(--mint);
-}
 
+    .snake-cell.dark {
+      background: var(--mint);
+    }
 
-/* =========================================================
-   SERPENTE
-========================================================= */
 
-.snake-cell.snake {
-  background: var(--green);
-}
+    /* These classes are kept for structure and debugging. */
 
+    .snake-cell.snake {
+      background: var(--green);
+    }
 
-.snake-cell.snake-head {
-  background: #1D2F2E;
-}
 
+    .snake-cell.snake-head {
+      background: var(--snake-head);
+    }
 
-/* =========================================================
-   MELA ROSSA
-========================================================= */
 
-.snake-cell.food {
-  position: relative;
-}
+    /* =========================================================
+       SNAKE OVERLAY
+    ========================================================= */
 
+    .snake-overlay {
+      position: absolute;
 
-/* Corpo rosso */
+      inset: 2px;
 
-.snake-cell.food::before {
-  content: "";
+      display: flex;
 
-  width: 58%;
-  height: 58%;
+      align-items: center;
 
-  background: #C94A4A;
+      justify-content: center;
 
-  position: absolute;
+      padding: 20px;
 
-  left: 50%;
-  top: 55%;
+      background: rgba(255,255,255,0.88);
 
-  transform: translate(-50%, -50%);
+      z-index: 10;
 
-  border-radius: 10%;
-}
+      transition: opacity 0.3s ease;
+    }
 
 
-/* Fogliolina verde */
+    .snake-overlay.hidden {
+      opacity: 0;
 
-.snake-cell.food::after {
-  content: "";
+      pointer-events: none;
+    }
 
-  width: 24%;
-  height: 18%;
 
-  background: #5C8065;
+    .snake-overlay-box {
+      width: min(280px, 100%);
 
-  position: absolute;
+      text-align: center;
+    }
 
-  left: 59%;
-  top: 26%;
 
-  transform: rotate(-30deg);
+    .snake-overlay-title {
+      font-family: 'Newsreader', serif;
 
-  border-radius: 2px 8px 2px 8px;
-}
+      font-size: 2rem;
 
+      margin-bottom: 8px;
+    }
 
-/* =========================================================
-   OVERLAY START / GAME OVER
-========================================================= */
 
-.snake-overlay {
-  position: absolute;
+    .snake-overlay-text {
+      font-size: 0.9rem;
 
-  inset: 0;
+      color: var(--ink-soft);
 
-  display: flex;
+      margin-bottom: 18px;
+    }
 
-  align-items: center;
 
-  justify-content: center;
+    /* NAME INPUT */
 
-  padding: 20px;
+    .snake-name-input {
+      width: 100%;
 
-  background: rgba(255, 255, 255, 0.90);
+      padding: 10px 12px;
 
-  z-index: 10;
+      margin-bottom: 10px;
 
-  transition: opacity 0.3s ease;
-}
+      border: 1px solid rgba(17,17,17,0.25);
 
+      background: var(--white);
 
-.snake-overlay.hidden {
-  opacity: 0;
+      font-family: 'Inter', sans-serif;
 
-  pointer-events: none;
-}
+      font-size: 0.9rem;
 
+      outline: none;
+    }
 
-.snake-overlay-box {
-  width: min(280px, 100%);
 
-  text-align: center;
-}
+    .snake-name-input:focus {
+      border-color: var(--green);
+    }
 
 
-.snake-overlay-title {
-  font-family: 'Newsreader', serif;
+    /* GAME BUTTON */
 
-  font-size: 2rem;
+    .snake-button {
+      border: 2px solid var(--green);
 
-  margin-bottom: 8px;
-}
+      background: var(--white);
 
+      color: var(--green);
 
-.snake-overlay-text {
-  font-size: 0.9rem;
+      padding: 10px 18px;
 
-  color: var(--ink-soft);
+      font-family: 'Inter', sans-serif;
 
-  margin-bottom: 18px;
-}
+      font-size: 0.85rem;
 
+      cursor: pointer;
 
-/* INPUT NOME */
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
 
-.snake-name-input {
-  width: 100%;
 
-  padding: 10px 12px;
+    .snake-button:hover {
+      background: var(--green);
 
-  margin-bottom: 10px;
+      color: var(--white);
+    }
 
-  border: 1px solid rgba(17,17,17,0.25);
 
-  background: var(--white);
+    /* =========================================================
+       HIGH SCORES
+    ========================================================= */
 
-  font-family: 'Inter', sans-serif;
+    .snake-best {
+      width: min(400px, 100%);
 
-  font-size: 0.9rem;
+      margin-top: 18px;
 
-  outline: none;
-}
+      padding-top: 18px;
 
+      border-top: 1px solid rgba(17,17,17,0.10);
+    }
 
-.snake-name-input:focus {
-  border-color: var(--green);
-}
 
+    .snake-best-title {
+      font-family: 'Newsreader', serif;
 
-/* BOTTONI */
+      font-size: 1.2rem;
 
-.snake-button {
-  border: 2px solid var(--green);
+      margin-bottom: 10px;
+    }
 
-  background: var(--white);
 
-  color: var(--green);
+    .snake-best-row {
+      display: flex;
 
-  padding: 10px 18px;
+      justify-content: space-between;
 
-  font-family: 'Inter', sans-serif;
+      padding: 5px 0;
 
-  font-size: 0.85rem;
+      font-size: 0.82rem;
 
-  cursor: pointer;
+      color: var(--ink-soft);
+    }
 
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-}
 
-
-.snake-button:hover {
-  background: var(--green);
-
-  color: var(--white);
-}
-
-
-/* =========================================================
-   LEADERBOARD
-========================================================= */
-
-.snake-best {
-  width: min(420px, 100%);
-
-  margin-top: 18px;
-
-  padding-top: 18px;
-
-  border-top: 1px solid rgba(17,17,17,0.10);
-}
-
-
-.snake-best-title {
-  font-family: 'Newsreader', serif;
-
-  font-size: 1.2rem;
-
-  margin-bottom: 10px;
-}
-
-
-.snake-best-row {
-  display: flex;
-
-  justify-content: space-between;
-
-  padding: 5px 0;
-
-  font-size: 0.82rem;
-
-  color: var(--ink-soft);
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 900px) {
-
-  #contact {
-    padding: 10vh 7vw;
-  }
-
-  .contact-layout {
-    grid-template-columns: 1fr;
-
-    gap: 70px;
-  }
-
-}
-
-
-@media (max-width: 640px) {
-
-  #contact {
-    padding: 10vh 7vw;
-  }
-
-  .contact-layout {
-    gap: 55px;
-  }
-
-  .contact-item {
-    gap: 20px;
-  }
-
-  .contact-button {
-    width: 40px;
-    height: 40px;
-  }
-
-  .contact-title {
-    font-size: 1.05rem;
-  }
-
-  .contact-value {
-    font-size: 0.95rem;
-  }
-
-  .snake-title,
-  .snake-subtitle,
-  .snake-score,
-  .snake-best,
-  .snake-board-wrapper {
-    width: 100%;
-  }
-
-}
     /* =========================================================
        FOOTER
     ========================================================= */
@@ -976,26 +911,48 @@
       line-height: 1.7;
     }
 
+
     footer strong {
       color: var(--ink);
     }
 
 
     /* =========================================================
-       RESPONSIVE — TABLET
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      #contact {
+        padding: 10vh 7vw;
+      }
+
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
     ========================================================= */
 
     @media (max-width: 800px) {
 
       #about,
-      #resume,
-      #contact {
+      #resume {
         padding-left: calc(8vw + 45px);
       }
+
 
       .personal-info {
         column-gap: 40px;
       }
+
 
       .languages {
         grid-template-columns: 1fr 1fr;
@@ -1004,18 +961,15 @@
     }
 
 
-    /* =========================================================
-       RESPONSIVE — TELEFONO
-    ========================================================= */
-
     @media (max-width: 640px) {
 
-      /* MENU */
+      /* SIDE NAV */
 
       .side-nav {
         left: 50%;
 
         top: auto;
+
         bottom: 18px;
 
         transform: translateX(-50%);
@@ -1027,13 +981,17 @@
         padding: 4px;
       }
 
+
       .side-nav .connector {
         width: 18px;
+
         height: 1px;
       }
 
+
       .side-nav a {
         width: 40px;
+
         height: 40px;
       }
 
@@ -1044,6 +1002,7 @@
         padding: 6vh 7vw;
       }
 
+
       #home .welcome {
         align-self: flex-start;
 
@@ -1053,13 +1012,13 @@
       }
 
 
-      /* ABOUT */
+      /* ABOUT + RESUME */
 
       #about,
-      #resume,
-      #contact {
+      #resume {
         padding: 10vh 7vw;
       }
+
 
       .about-description {
         font-size: 1rem;
@@ -1068,6 +1027,7 @@
 
         margin-bottom: 45px;
       }
+
 
       .personal-info {
         grid-template-columns: 1fr;
@@ -1086,39 +1046,70 @@
         margin-bottom: 30px;
       }
 
+
       .resume-years {
         font-size: 0.78rem;
       }
+
 
       .resume-category {
         margin-bottom: 45px;
       }
 
+
       .languages {
         grid-template-columns: 1fr;
+
         gap: 20px;
       }
 
 
       /* CONTACT */
 
-      .contact-links {
-        flex-wrap: wrap;
-
-        gap: 10px;
+      #contact {
+        padding: 10vh 7vw;
       }
 
-      .email-link {
+
+      .contact-layout {
+        gap: 55px;
+      }
+
+
+      .contact-item {
+        gap: 20px;
+      }
+
+
+      .contact-button {
+        width: 40px;
+
+        height: 40px;
+      }
+
+
+      .contact-title {
+        font-size: 1.05rem;
+      }
+
+
+      .contact-value {
+        font-size: 0.95rem;
+      }
+
+
+      .snake-title,
+      .snake-subtitle,
+      .snake-score,
+      .snake-best,
+      .snake-board-wrapper {
         width: 100%;
-
-        margin-left: 0;
-
-        margin-top: 8px;
       }
 
     }
 
   </style>
+
 </head>
 
 
@@ -1126,15 +1117,25 @@
 
 
   <!-- =========================================================
-       MENU LATERALE
-  ========================================================== -->
+       SIDE NAVIGATION
+  ========================================================= -->
 
-  <nav class="side-nav" aria-label="Navigazione sezioni">
+  <nav
+    class="side-nav"
+    aria-label="Section navigation"
+  >
 
     <!-- HOME -->
-    <a href="#home" data-section="home" class="active" aria-label="Home">
+
+    <a
+      href="#home"
+      data-section="home"
+      class="active"
+      aria-label="Home"
+    >
 
       <svg viewBox="0 0 24 24">
+
         <path
           d="M3 11l9-8 9 8"
           stroke-linecap="round"
@@ -1146,6 +1147,7 @@
           stroke-linecap="round"
           stroke-linejoin="round"
         />
+
       </svg>
 
     </a>
@@ -1155,7 +1157,12 @@
 
 
     <!-- ABOUT -->
-    <a href="#about" data-section="about" aria-label="Chi sono">
+
+    <a
+      href="#about"
+      data-section="about"
+      aria-label="About"
+    >
 
       <svg viewBox="0 0 24 24">
 
@@ -1181,7 +1188,12 @@
 
 
     <!-- RESUME -->
-    <a href="#resume" data-section="resume" aria-label="Resume">
+
+    <a
+      href="#resume"
+      data-section="resume"
+      aria-label="Resume"
+    >
 
       <svg viewBox="0 0 24 24">
 
@@ -1211,7 +1223,12 @@
 
 
     <!-- CONTACT -->
-    <a href="#contact" data-section="contact" aria-label="Contatti">
+
+    <a
+      href="#contact"
+      data-section="contact"
+      aria-label="Contact"
+    >
 
       <svg viewBox="0 0 24 24">
 
@@ -1238,19 +1255,21 @@
 
   <!-- =========================================================
        HOME
-  ========================================================== -->
+  ========================================================= -->
 
   <section id="home">
 
     <span class="welcome">
-      Benvenuti nel mio sito
+      Welcome to my website
     </span>
+
 
     <div class="name-block">
 
       <div class="greeting">
-        Ciao, sono
+        Hi, I'm
       </div>
+
 
       <h1>
         Andrea Gao
@@ -1263,7 +1282,7 @@
 
   <!-- =========================================================
        ABOUT
-  ========================================================== -->
+  ========================================================= -->
 
   <section id="about">
 
@@ -1274,24 +1293,33 @@
       </h2>
 
 
-      <!-- DESCRIZIONE -->
-
       <p class="about-description">
 
-        Mi sono laureato in Business Administration and Management presso l'Università Cattolica del Sacro Cuore di Milano,
-        sviluppando un forte interesse per il mondo del business, della tecnologia e dell'innovazione.
-        <br>Nel corso del mio percorso ho avuto modo di conoscere realtà e funzioni aziendali differenti, maturando esperienza in ambito
-        amministrativo e commerciale e sviluppando un interesse particolare per l'ottimizzazione dei processi e per l'utilizzo della 
-        tecnologia come strumento a supporto delle imprese.
-        <br>Sono particolarmente interessato ai settori del business development, della consulenza e delle soluzioni ERP, dove credo che la
-        combinazione tra competenze economiche, capacità analitiche e tecnologia possa creare valore concreto.
-        <br>Il mio obiettivo è continuare a sviluppare le mie competenze, confrontarmi con realtà dinamiche e costruire 
-        un percorso professionale che mi permetta di unire il mondo del business a quello tecnologico.
+        I graduated in Business Administration and Management from the
+        Università Cattolica del Sacro Cuore in Milan, developing a strong
+        interest in business, technology and innovation.
+        <br><br>
+
+        Throughout my academic and professional journey, I had the opportunity
+        to experience different business environments and functions, gaining
+        experience in both administrative and commercial activities. These
+        experiences strengthened my interest in process optimisation and in
+        the use of technology as a tool to support businesses.
+        <br><br>
+
+        I am particularly interested in business development, consulting and
+        ERP solutions, where I believe that combining business knowledge,
+        analytical thinking and technology can create tangible value.
+        <br><br>
+
+        My goal is to continue developing my skills, work in dynamic
+        environments and build a professional path that allows me to combine
+        the business and technology worlds.
 
       </p>
 
 
-      <!-- INFORMAZIONI PERSONALI -->
+      <!-- PERSONAL INFORMATION -->
 
       <div class="personal-info">
 
@@ -1299,7 +1327,7 @@
         <div class="info-item">
 
           <span class="info-label">
-            Anno di nascita
+            Year of birth
           </span>
 
           <span class="info-value">
@@ -1312,11 +1340,11 @@
         <div class="info-item">
 
           <span class="info-label">
-            Luogo di nascita
+            Place of birth
           </span>
 
           <span class="info-value">
-            Prato, Italia
+            Prato, Italy
           </span>
 
         </div>
@@ -1325,11 +1353,11 @@
         <div class="info-item">
 
           <span class="info-label">
-            Indirizzo
+            Location
           </span>
 
           <span class="info-value">
-            Milano, Italia
+            Milan, Italy
           </span>
 
         </div>
@@ -1338,11 +1366,11 @@
         <div class="info-item">
 
           <span class="info-label">
-            Sito web
+            Website
           </span>
 
           <span class="info-value">
-            Andg27.github.io
+            andg27.github.io
           </span>
 
         </div>
@@ -1370,7 +1398,7 @@
 
   <!-- =========================================================
        RESUME
-  ========================================================== -->
+  ========================================================= -->
 
   <section id="resume">
 
@@ -1381,14 +1409,12 @@
       </h2>
 
 
-      <!-- =======================
-           ESPERIENZA
-      ======================== -->
+      <!-- EXPERIENCE -->
 
       <div class="resume-category">
 
         <h3>
-          Esperienza
+          Experience
         </h3>
 
 
@@ -1398,21 +1424,29 @@
             Apr 2025 – Apr 2026
           </div>
 
+
           <div>
 
             <div class="resume-role">
               Junior Business Analyst
             </div>
 
+
             <div class="resume-place">
               Tre Cime Srl
             </div>
 
+
             <div class="resume-description">
-              Esperienza in ambito business development nel settore HO.RE.CA., 
-              con attività legate allo sviluppo commerciale e alla gestione delle relazioni con clienti e partner. 
-              Il ruolo mi ha permesso di approfondire le dinamiche commerciali di una realtà in crescita e di sviluppare competenze 
-              nell'analisi delle opportunità di mercato, nella gestione dei rapporti commerciali e nel supporto allo sviluppo del business.
+
+              Experience in business development within the HO.RE.CA.
+              sector, with activities related to commercial development
+              and the management of relationships with clients and partners.
+              The role allowed me to gain a deeper understanding of the
+              commercial dynamics of a growing company and develop skills in
+              market opportunity analysis, commercial relationship management
+              and business development.
+
             </div>
 
           </div>
@@ -1426,20 +1460,28 @@
             Nov 2024 – Apr 2025
           </div>
 
+
           <div>
 
             <div class="resume-role">
               Accounting Assistant (Intern)
             </div>
 
+
             <div class="resume-place">
-              Perker Russell Italia STP Srl
+              Parker Russell Italia STP Srl
             </div>
 
+
             <div class="resume-description">
-              Esperienza in ambito amministrativo e contabile, con attività di supporto ai processi contabili e alla gestione
-              della documentazione aziendale. Il ruolo mi ha permesso di sviluppare precisione, organizzazione e familiarità con i
-              principali processi amministrativi, maturando una visione più concreta della gestione economico-finanziaria di un'impresa.
+
+              Experience in accounting and administrative activities,
+              supporting accounting processes and the management of company
+              documentation. The role allowed me to develop accuracy,
+              organisation and familiarity with key administrative processes,
+              while gaining a more practical understanding of the
+              financial management of a business.
+
             </div>
 
           </div>
@@ -1449,14 +1491,12 @@
       </div>
 
 
-      <!-- =======================
-           FORMAZIONE
-      ======================== -->
+      <!-- EDUCATION -->
 
       <div class="resume-category">
 
         <h3>
-          Formazione
+          Education
         </h3>
 
 
@@ -1466,19 +1506,24 @@
             2021 – 2024
           </div>
 
+
           <div>
 
             <div class="resume-role">
-              Economia e Gestione Aziendale
+              Economics and Business Management
             </div>
+
 
             <div class="resume-place">
               Università Cattolica del Sacro Cuore
             </div>
 
+
             <div class="resume-description">
-              Eventuale descrizione, specializzazione
-              o informazioni aggiuntive.
+
+              Bachelor's degree focused on business administration,
+              management and economics.
+
             </div>
 
           </div>
@@ -1492,11 +1537,13 @@
             2020
           </div>
 
+
           <div>
 
             <div class="resume-role">
-              Sistemi Informativi Aziendali (SIA)
+              Business Information Systems
             </div>
+
 
             <div class="resume-place">
               IIS Paolo Dagomari
@@ -1509,14 +1556,12 @@
       </div>
 
 
-      <!-- =======================
-           SKILL
-      ======================== -->
+      <!-- SKILLS -->
 
       <div class="resume-category">
 
         <h3>
-          Skill
+          Skills
         </h3>
 
 
@@ -1526,9 +1571,11 @@
             ERP & Accounting Software: Odoo ERP, Profis
           </span>
 
+
           <span class="skill">
             Data Analysis Tools: Microsoft Excel, Microsoft Power BI, SQL
           </span>
+
 
           <span class="skill">
             Programming: Python, R
@@ -1539,27 +1586,26 @@
       </div>
 
 
-      <!-- =======================
-           LINGUE
-      ======================== -->
+      <!-- LANGUAGES -->
 
       <div class="resume-category">
 
         <h3>
-          Lingue
+          Languages
         </h3>
 
 
         <div class="languages">
 
+
           <div>
 
             <div class="language-name">
-              Italiano
+              Italian
             </div>
 
             <div class="language-level">
-              Madrelingua
+              Native
             </div>
 
           </div>
@@ -1568,11 +1614,11 @@
           <div>
 
             <div class="language-name">
-              Cinese
+              Chinese
             </div>
 
             <div class="language-level">
-              Madrelingua
+              Native
             </div>
 
           </div>
@@ -1581,23 +1627,24 @@
           <div>
 
             <div class="language-name">
-              Inglese
+              English
             </div>
 
             <div class="language-level">
-              Intermedio Alto
+              Upper-Intermediate
             </div>
 
           </div>
 
+
           <div>
 
             <div class="language-name">
-              Spagnolo
+              Spanish
             </div>
 
             <div class="language-level">
-              Elementare
+              Elementary
             </div>
 
           </div>
@@ -1607,14 +1654,12 @@
       </div>
 
 
-      <!-- =======================
-           HOBBY
-      ======================== -->
+      <!-- HOBBIES -->
 
       <div class="resume-category">
 
         <h3>
-          Hobby & Interessi
+          Hobbies & Interests
         </h3>
 
 
@@ -1624,16 +1669,19 @@
             Gym
           </span>
 
+
           <span class="hobby">
             Running
           </span>
+
 
           <span class="hobby">
             Climbing
           </span>
 
+
           <span class="hobby">
-            Lifelong Learning 
+            Lifelong Learning
           </span>
 
         </div>
@@ -1646,200 +1694,308 @@
   </section>
 
 
-<!-- =========================================================
-     CONTACT + SNAKE
-========================================================= -->
+  <!-- =========================================================
+       CONTACT + SNAKE
+  ========================================================= -->
 
-<section id="contact">
+  <section id="contact">
 
-  <div class="contact-layout">
-
-
-    <!-- =====================================================
-         CONTATTI
-    ====================================================== -->
-
-    <div class="contact-column">
-
-      <h2>
-        Contatti
-      </h2>
+    <div class="contact-layout">
 
 
-      <div class="contact-list">
+      <!-- =====================================================
+           CONTACTS
+      ====================================================== -->
+
+      <div class="contact-column">
+
+        <h2>
+          Contact
+        </h2>
 
 
-        <!-- =======================
-             EMAIL
-        ======================== -->
-
-        <div class="contact-item">
-
-          <a
-            class="contact-button"
-            href="mailto:andreagao27@gmail.com"
-            aria-label="Email"
-          >
-
-            <svg viewBox="0 0 24 24">
-
-              <rect
-                x="3"
-                y="5.5"
-                width="18"
-                height="13"
-                rx="1.2"
-              />
-
-              <path
-                d="M3.5 6.5l8.5 7 8.5-7"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-
-            </svg>
-
-          </a>
+        <div class="contact-list">
 
 
-          <div class="contact-text">
+          <!-- EMAIL -->
 
-            <div class="contact-title">
-              Email
-            </div>
+          <div class="contact-item">
 
-            <div class="contact-value">
-              andreagao27@gmail.com
+            <a
+              class="contact-button"
+              href="mailto:andreagao27@gmail.com"
+              aria-label="Email"
+            >
+
+              <svg viewBox="0 0 24 24">
+
+                <rect
+                  x="3"
+                  y="5.5"
+                  width="18"
+                  height="13"
+                  rx="1.2"
+                />
+
+                <path
+                  d="M3.5 6.5l8.5 7 8.5-7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+              </svg>
+
+            </a>
+
+
+            <div class="contact-text">
+
+              <div class="contact-title">
+                Email
+              </div>
+
+              <div class="contact-value">
+                andreagao27@gmail.com
+              </div>
+
             </div>
 
           </div>
 
-        </div>
 
+          <!-- LINKEDIN -->
 
-        <!-- =======================
-             LINKEDIN
-        ======================== -->
-
-        <div class="contact-item">
-
-          <a
-            class="contact-button"
-            href="https://www.linkedin.com/in/-andrea-gao"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-
-            <svg viewBox="0 0 24 24">
-
-              <path
-                d="M6 8v11"
-                stroke-linecap="round"
-              />
-
-              <path
-                d="M6 5.2v.1"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-
-              <path
-                d="M11 19v-6.2
-                   c0-2.2 1.2-3.5 3.1-3.5
-                   1.9 0 3 1.3 3 3.5V19"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-
-              <path
-                d="M11 12v7"
-                stroke-linecap="round"
-              />
-
-            </svg>
-
-          </a>
-
-
-          <div class="contact-text">
-
-            <div class="contact-title">
-              LinkedIn
-            </div>
+          <div class="contact-item">
 
             <a
-              class="contact-value social-link"
+              class="contact-button"
               href="https://www.linkedin.com/in/-andrea-gao"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
-              linkedin.com/in/-andrea-gao
+
+              <svg viewBox="0 0 24 24">
+
+                <path
+                  d="M6 8v11"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M6 5.2v.1"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+
+                <path
+                  d="M11 19v-6.2
+                     c0-2.2 1.2-3.5 3.1-3.5
+                     1.9 0 3 1.3 3 3.5V19"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M11 12v7"
+                  stroke-linecap="round"
+                />
+
+              </svg>
+
             </a>
+
+
+            <div class="contact-text">
+
+              <div class="contact-title">
+                LinkedIn
+              </div>
+
+
+              <a
+                class="contact-value social-link"
+                href="https://www.linkedin.com/in/-andrea-gao"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin.com/in/-andrea-gao
+              </a>
+
+            </div>
 
           </div>
 
-        </div>
 
+          <!-- INSTAGRAM -->
 
-        <!-- =======================
-             INSTAGRAM
-        ======================== -->
-
-        <div class="contact-item">
-
-          <a
-            class="contact-button"
-            href="https://www.instagram.com/andregao27/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-
-            <svg viewBox="0 0 24 24">
-
-              <rect
-                x="3"
-                y="3"
-                width="18"
-                height="18"
-                rx="5"
-              />
-
-              <circle
-                cx="12"
-                cy="12"
-                r="4"
-              />
-
-              <circle
-                cx="17.5"
-                cy="6.5"
-                r="1"
-                fill="currentColor"
-                stroke="none"
-              />
-
-            </svg>
-
-          </a>
-
-
-          <div class="contact-text">
-
-            <div class="contact-title">
-              Instagram
-            </div>
+          <div class="contact-item">
 
             <a
-              class="contact-value social-link"
+              class="contact-button"
               href="https://www.instagram.com/andregao27/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
             >
-              @andregao27
+
+              <svg viewBox="0 0 24 24">
+
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                />
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                />
+
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+
+              </svg>
+
             </a>
 
+
+            <div class="contact-text">
+
+              <div class="contact-title">
+                Instagram
+              </div>
+
+
+              <a
+                class="contact-value social-link"
+                href="https://www.instagram.com/andregao27/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @andregao27
+              </a>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           SNAKE
+      ====================================================== -->
+
+      <div class="snake-column">
+
+
+        <div class="snake-title">
+          Snake
+        </div>
+
+
+        <div class="snake-subtitle">
+          Eat the apples and get the highest score.
+        </div>
+
+
+        <div class="snake-score">
+
+          <span>
+            Score
+          </span>
+
+          <span
+            class="snake-score-value"
+            id="snake-score"
+          >
+            0
+          </span>
+
+        </div>
+
+
+        <div class="snake-board-wrapper">
+
+          <canvas
+            id="snake-canvas"
+            aria-label="Snake game"
+          ></canvas>
+
+
+          <!-- GAME OVER / START OVERLAY -->
+
+          <div
+            class="snake-overlay"
+            id="snake-overlay"
+          >
+
+            <div class="snake-overlay-box">
+
+              <div
+                class="snake-overlay-title"
+                id="snake-overlay-title"
+              >
+                Snake
+              </div>
+
+
+              <div
+                class="snake-overlay-text"
+                id="snake-overlay-text"
+              >
+                Press Start to play.
+              </div>
+
+
+              <input
+                type="text"
+                id="snake-name"
+                class="snake-name-input"
+                placeholder="Your name"
+                maxlength="20"
+                autocomplete="off"
+                style="display: none;"
+              >
+
+
+              <button
+                type="button"
+                id="snake-action"
+                class="snake-button"
+              >
+                Start
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- HIGH SCORES -->
+
+        <div class="snake-best">
+
+          <div class="snake-best-title">
+            High Scores
+          </div>
+
+
+          <div id="snake-leaderboard">
           </div>
 
         </div>
@@ -1847,188 +2003,78 @@
 
       </div>
 
-    </div>
-
-
-    <!-- =====================================================
-         SNAKE
-    ====================================================== -->
-
-    <div class="snake-column">
-
-
-      <div class="snake-title">
-        Snake
-      </div>
-
-
-      <div class="snake-subtitle">
-        Mangia le mele e raggiungi il punteggio più alto.
-      </div>
-
-
-      <!-- SCORE -->
-
-      <div class="snake-score">
-
-        <span>
-          Score
-        </span>
-
-        <span
-          class="snake-score-value"
-          id="snake-score"
-        >
-          0
-        </span>
-
-      </div>
-
-
-      <!-- TAVOLA -->
-
-      <div class="snake-board-wrapper">
-
-        <div id="snake-board">
-        </div>
-
-
-        <!-- OVERLAY -->
-
-        <div
-          class="snake-overlay"
-          id="snake-overlay"
-        >
-
-          <div class="snake-overlay-box">
-
-            <div
-              class="snake-overlay-title"
-              id="snake-overlay-title"
-            >
-              Snake
-            </div>
-
-            <div
-              class="snake-overlay-text"
-              id="snake-overlay-text"
-            >
-              Premi Start per iniziare.
-            </div>
-
-
-            <!-- INPUT NOME -->
-
-            <input
-              type="text"
-              id="snake-name"
-              class="snake-name-input"
-              placeholder="Il tuo nome"
-              maxlength="20"
-              autocomplete="off"
-              style="display: none;"
-            >
-
-
-            <!-- BOTTONE -->
-
-            <button
-              type="button"
-              id="snake-action"
-              class="snake-button"
-            >
-              Start
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- LEADERBOARD -->
-
-      <div class="snake-best">
-
-        <div class="snake-best-title">
-          High Scores
-        </div>
-
-        <div id="snake-leaderboard">
-        </div>
-
-      </div>
-
 
     </div>
 
-
-  </div>
-
-</section>
+  </section>
 
 
   <!-- =========================================================
        FOOTER
-  ========================================================== -->
+  ========================================================= -->
 
   <footer>
 
-    Grazie per aver visitato la pagina.
+    Thank you for visiting my website.
     <br>
 
     <strong>
       © 2026 Andrea Gao
     </strong>
 
-    | Tutti i diritti riservati.
+    | All rights reserved.
 
   </footer>
 
 
   <!-- =========================================================
-       JAVASCRIPT
-       Evidenzia automaticamente la sezione attiva
-       nel menu laterale.
-  ========================================================== -->
+       SECTION NAVIGATION JAVASCRIPT
+  ========================================================= -->
 
   <script>
 
-    const links = document.querySelectorAll('.side-nav a');
+    const links =
+      document.querySelectorAll('.side-nav a');
 
-    const sections = document.querySelectorAll('section[id]');
 
-    const observer = new IntersectionObserver(
+    const sections =
+      document.querySelectorAll('section[id]');
 
-      (entries) => {
 
-        entries.forEach(entry => {
+    const observer =
+      new IntersectionObserver(
 
-          if (entry.isIntersecting) {
+        (entries) => {
 
-            const id = entry.target.getAttribute('id');
+          entries.forEach(entry => {
 
-            links.forEach(link => {
+            if (entry.isIntersecting) {
 
-              link.classList.toggle(
-                'active',
-                link.dataset.section === id
-              );
+              const id =
+                entry.target.getAttribute('id');
 
-            });
 
-          }
+              links.forEach(link => {
 
-        });
+                link.classList.toggle(
+                  'active',
+                  link.dataset.section === id
+                );
 
-      },
+              });
 
-      {
-        threshold: 0.5
-      }
+            }
 
-    );
+          });
+
+        },
+
+        {
+          threshold: 0.5
+        }
+
+      );
+
 
     sections.forEach(section => {
 
@@ -2039,129 +2085,204 @@
   </script>
 
 
-  <!-- =====================================================
+  <!-- =========================================================
        SNAKE JAVASCRIPT
-  ====================================================== -->
+  ========================================================= -->
 
   <script>
 
     /* =====================================================
-       IMPOSTAZIONI
-    ====================================================== */
+       SETTINGS
+    ===================================================== */
 
-    const BOARD_SIZE = 15;
+    const BOARD_SIZE = 10;
 
-    const INITIAL_SPEED = 150;
+    const MOVE_INTERVAL = 105;
 
     const MAX_HIGH_SCORES = 5;
 
 
     /* =====================================================
-       ELEMENTI HTML
-    ====================================================== */
+       DOM ELEMENTS
+    ===================================================== */
 
-    const board = document.getElementById('snake-board');
+    const canvas =
+      document.getElementById('snake-canvas');
 
-    const scoreElement = document.getElementById('snake-score');
 
-    const overlay = document.getElementById('snake-overlay');
+    const canvasContext =
+      canvas.getContext('2d');
 
-    const overlayTitle = document.getElementById('snake-overlay-title');
 
-    const overlayText = document.getElementById('snake-overlay-text');
+    const scoreElement =
+      document.getElementById('snake-score');
 
-    const actionButton = document.getElementById('snake-action');
 
-    const nameInput = document.getElementById('snake-name');
+    const overlay =
+      document.getElementById('snake-overlay');
 
-    const leaderboard = document.getElementById('snake-leaderboard');
+
+    const overlayTitle =
+      document.getElementById('snake-overlay-title');
+
+
+    const overlayText =
+      document.getElementById('snake-overlay-text');
+
+
+    const actionButton =
+      document.getElementById('snake-action');
+
+
+    const nameInput =
+      document.getElementById('snake-name');
+
+
+    const leaderboard =
+      document.getElementById('snake-leaderboard');
 
 
     /* =====================================================
-       VARIABILI DEL GIOCO
-    ====================================================== */
+       GAME STATE
+    ===================================================== */
 
     let snake = [];
 
-    let food = {};
+    let previousSnake = [];
+
+    let food = {
+      x: 0,
+      y: 0
+    };
+
 
     let direction = {
       x: 1,
       y: 0
     };
 
+
     let nextDirection = {
       x: 1,
       y: 0
     };
 
-    let score = 0;
 
-    let gameInterval = null;
+    let score = 0;
 
     let gameRunning = false;
 
     let waitingForName = false;
 
+    let lastFrameTime = 0;
+
+    let accumulator = 0;
+
 
     /* =====================================================
-       CREAZIONE DELLA GRIGLIA
-    ====================================================== */
+       CANVAS SETUP
+    ===================================================== */
 
-    function createBoard() {
+    function resizeCanvas() {
 
-      board.innerHTML = '';
+      const rect =
+        canvas.getBoundingClientRect();
 
-      for (let i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
 
-        const cell = document.createElement('div');
+      const devicePixelRatio =
+        window.devicePixelRatio || 1;
 
-        cell.classList.add('snake-cell');
 
-        const row = Math.floor(i / BOARD_SIZE);
+      canvas.width =
+        Math.round(rect.width * devicePixelRatio);
 
-        const col = i % BOARD_SIZE;
 
-        if ((row + col) % 2 === 0) {
+      canvas.height =
+        Math.round(rect.height * devicePixelRatio);
 
-          cell.classList.add('light');
 
-        } else {
+      canvasContext.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+      );
 
-          cell.classList.add('dark');
 
+      drawGame(1);
+
+    }
+
+
+    window.addEventListener(
+      'resize',
+      resizeCanvas
+    );
+
+
+    /* =====================================================
+       CREATE INITIAL SNAKE
+    ===================================================== */
+
+    function createInitialSnake() {
+
+      return [
+
+        {
+          x: 4,
+          y: 5
+        },
+
+        {
+          x: 3,
+          y: 5
+        },
+
+        {
+          x: 2,
+          y: 5
         }
 
-        board.appendChild(cell);
-
-      }
+      ];
 
     }
 
 
     /* =====================================================
-       POSIZIONE CASUALE DELLA MELA
-    ====================================================== */
+       FOOD
+    ===================================================== */
 
     function randomFoodPosition() {
 
-      const emptyCells = [];
+      const freeCells = [];
 
-      for (let y = 0; y < BOARD_SIZE; y++) {
 
-        for (let x = 0; x < BOARD_SIZE; x++) {
+      for (
+        let y = 0;
+        y < BOARD_SIZE;
+        y++
+      ) {
 
-          const occupied = snake.some(segment => {
+        for (
+          let x = 0;
+          x < BOARD_SIZE;
+          x++
+        ) {
 
-            return segment.x === x && segment.y === y;
+          const occupied =
+            snake.some(segment =>
+              segment.x === x &&
+              segment.y === y
+            );
 
-          });
 
           if (!occupied) {
 
-            emptyCells.push({
-              x: x,
-              y: y
+            freeCells.push({
+              x,
+              y
             });
 
           }
@@ -2171,116 +2292,268 @@
       }
 
 
-      if (emptyCells.length === 0) {
+      if (freeCells.length === 0) {
 
         return;
 
       }
 
 
-      const randomIndex = Math.floor(
-        Math.random() * emptyCells.length
-      );
-
-      food = emptyCells[randomIndex];
-
-    }
-
-
-    /* =====================================================
-       DISEGNA IL GIOCO
-    ====================================================== */
-
-    function drawGame() {
-
-      const cells = board.children;
-
-
-      /* RESET */
-
-      for (const cell of cells) {
-
-        cell.classList.remove(
-          'snake',
-          'snake-head',
-          'food'
+      const randomIndex =
+        Math.floor(
+          Math.random() * freeCells.length
         );
 
-      }
 
-
-      /* SERPENTE */
-
-      snake.forEach((segment, index) => {
-
-        const cellIndex =
-          segment.y * BOARD_SIZE + segment.x;
-
-        const cell = cells[cellIndex];
-
-        if (!cell) return;
-
-
-        cell.classList.add('snake');
-
-
-        if (index === 0) {
-
-          cell.classList.add('snake-head');
-
-        }
-
-      });
-
-
-      /* MELA */
-
-      if (food) {
-
-        const foodIndex =
-          food.y * BOARD_SIZE + food.x;
-
-        const foodCell = cells[foodIndex];
-
-        if (foodCell) {
-
-          foodCell.classList.add('food');
-
-        }
-
-      }
-
-
-      /* SCORE */
-
-      scoreElement.textContent = score;
+      food =
+        freeCells[randomIndex];
 
     }
 
 
     /* =====================================================
-       INIZIA GAME
-    ====================================================== */
+       DRAW BOARD
+    ===================================================== */
+
+    function drawBoard(cellSize) {
+
+      for (
+        let y = 0;
+        y < BOARD_SIZE;
+        y++
+      ) {
+
+        for (
+          let x = 0;
+          x < BOARD_SIZE;
+          x++
+        ) {
+
+          const isMint =
+            (x + y) % 2 !== 0;
+
+
+          canvasContext.fillStyle =
+            isMint
+              ? '#EBF3F2'
+              : '#FFFFFF';
+
+
+          canvasContext.fillRect(
+            x * cellSize,
+            y * cellSize,
+            cellSize,
+            cellSize
+          );
+
+        }
+
+      }
+
+    }
+
+
+    /* =====================================================
+       DRAW FOOD
+    ===================================================== */
+
+    function drawFood(cellSize) {
+
+      const x =
+        food.x * cellSize;
+
+
+      const y =
+        food.y * cellSize;
+
+
+      const appleSize =
+        cellSize * 0.56;
+
+
+      const appleX =
+        x + cellSize * 0.22;
+
+
+      const appleY =
+        y + cellSize * 0.34;
+
+
+      /* RED CUBIC APPLE */
+
+      canvasContext.fillStyle =
+        '#C94A4A';
+
+
+      canvasContext.fillRect(
+        appleX,
+        appleY,
+        appleSize,
+        appleSize
+      );
+
+
+      /* SMALL GREEN LEAF */
+
+      canvasContext.fillStyle =
+        '#5C8065';
+
+
+      canvasContext.save();
+
+
+      canvasContext.translate(
+        x + cellSize * 0.61,
+        y + cellSize * 0.30
+      );
+
+
+      canvasContext.rotate(-0.45);
+
+
+      canvasContext.beginPath();
+
+      canvasContext.roundRect(
+        -cellSize * 0.06,
+        -cellSize * 0.07,
+        cellSize * 0.22,
+        cellSize * 0.11,
+        cellSize * 0.05
+      );
+
+      canvasContext.fill();
+
+
+      canvasContext.restore();
+
+    }
+
+
+    /* =====================================================
+       DRAW SNAKE
+    ===================================================== */
+
+    function drawSnake(
+      cellSize,
+      interpolation
+    ) {
+
+      snake.forEach(
+        (segment, index) => {
+
+          const previous =
+            previousSnake[index]
+              || segment;
+
+
+          const smoothX =
+            previous.x +
+            (segment.x - previous.x) *
+            interpolation;
+
+
+          const smoothY =
+            previous.y +
+            (segment.y - previous.y) *
+            interpolation;
+
+
+          const padding =
+            cellSize * 0.075;
+
+
+          const size =
+            cellSize - padding * 2;
+
+
+          const drawX =
+            smoothX * cellSize +
+            padding;
+
+
+          const drawY =
+            smoothY * cellSize +
+            padding;
+
+
+          canvasContext.fillStyle =
+            index === 0
+              ? '#1D2F2E'
+              : '#2F4342';
+
+
+          canvasContext.fillRect(
+            drawX,
+            drawY,
+            size,
+            size
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       DRAW EVERYTHING
+    ===================================================== */
+
+    function drawGame(
+      interpolation = 1
+    ) {
+
+      if (!canvas) {
+        return;
+      }
+
+
+      const rect =
+        canvas.getBoundingClientRect();
+
+
+      const width =
+        rect.width;
+
+
+      const cellSize =
+        width / BOARD_SIZE;
+
+
+      canvasContext.clearRect(
+        0,
+        0,
+        width,
+        width
+      );
+
+
+      drawBoard(cellSize);
+
+      drawFood(cellSize);
+
+      drawSnake(
+        cellSize,
+        interpolation
+      );
+
+    }
+
+
+    /* =====================================================
+       START GAME
+    ===================================================== */
 
     function startGame() {
 
-      clearInterval(gameInterval);
+      snake =
+        createInitialSnake();
 
 
-      snake = [
-        {
-          x: 7,
-          y: 7
-        },
-        {
-          x: 6,
-          y: 7
-        },
-        {
-          x: 5,
-          y: 7
-        }
-      ];
+      previousSnake =
+        snake.map(segment => ({
+          ...segment
+        }));
 
 
       direction = {
@@ -2297,56 +2570,76 @@
 
       score = 0;
 
+
       gameRunning = true;
 
       waitingForName = false;
 
 
+      accumulator = 0;
+
+      lastFrameTime =
+        performance.now();
+
+
       randomFoodPosition();
 
-      drawGame();
+
+      scoreElement.textContent =
+        score;
 
 
-      overlay.classList.add('hidden');
+      overlay.classList.add(
+        'hidden'
+      );
 
-      nameInput.style.display = 'none';
+
+      nameInput.style.display =
+        'none';
+
 
       nameInput.value = '';
 
 
-      actionButton.textContent = 'Start';
+      actionButton.textContent =
+        'Start';
 
 
-      gameInterval = setInterval(
-        gameLoop,
-        INITIAL_SPEED
+      requestAnimationFrame(
+        gameLoop
       );
 
     }
 
 
     /* =====================================================
-       GAME LOOP
-    ====================================================== */
+       MOVE GAME ONE STEP
+    ===================================================== */
 
-    function gameLoop() {
+    function moveSnake() {
 
-      if (!gameRunning) return;
-
-
-      direction = nextDirection;
+      direction =
+        nextDirection;
 
 
-      const head = snake[0];
+      const head =
+        snake[0];
 
 
       const newHead = {
-        x: head.x + direction.x,
-        y: head.y + direction.y
+
+        x:
+          head.x +
+          direction.x,
+
+        y:
+          head.y +
+          direction.y
+
       };
 
 
-      /* COLLISIONE CON I BORDI */
+      /* WALL COLLISION */
 
       if (
         newHead.x < 0 ||
@@ -2362,16 +2655,13 @@
       }
 
 
-      /* COLLISIONE CON IL CORPO */
+      /* SELF COLLISION */
 
-      const hitsBody = snake.some(segment => {
-
-        return (
+      const hitsBody =
+        snake.some(segment =>
           segment.x === newHead.x &&
           segment.y === newHead.y
         );
-
-      });
 
 
       if (hitsBody) {
@@ -2383,19 +2673,28 @@
       }
 
 
-      /* AGGIUNGI NUOVA TESTA */
+      previousSnake =
+        snake.map(segment => ({
+          ...segment
+        }));
+
 
       snake.unshift(newHead);
 
 
-      /* MANGIA LA MELA */
+      /* APPLE */
 
       if (
         newHead.x === food.x &&
         newHead.y === food.y
       ) {
 
-        score++;
+        score += 1;
+
+
+        scoreElement.textContent =
+          score;
+
 
         randomFoodPosition();
 
@@ -2405,37 +2704,111 @@
 
       }
 
+    }
 
-      drawGame();
+
+    /* =====================================================
+       SMOOTH GAME LOOP
+    ===================================================== */
+
+    function gameLoop(timestamp) {
+
+      if (!gameRunning) {
+
+        drawGame(1);
+
+        return;
+
+      }
+
+
+      const delta =
+        Math.min(
+          timestamp - lastFrameTime,
+          100
+        );
+
+
+      lastFrameTime =
+        timestamp;
+
+
+      accumulator +=
+        delta;
+
+
+      while (
+        accumulator >=
+        MOVE_INTERVAL
+      ) {
+
+        accumulator -=
+          MOVE_INTERVAL;
+
+
+        moveSnake();
+
+
+        if (!gameRunning) {
+          break;
+        }
+
+      }
+
+
+      const interpolation =
+        accumulator /
+        MOVE_INTERVAL;
+
+
+      drawGame(interpolation);
+
+
+      if (gameRunning) {
+
+        requestAnimationFrame(
+          gameLoop
+        );
+
+      }
 
     }
 
 
     /* =====================================================
        GAME OVER
-    ====================================================== */
+    ===================================================== */
 
     function endGame() {
 
       gameRunning = false;
 
-      clearInterval(gameInterval);
-
       waitingForName = true;
 
 
-      overlayTitle.textContent = 'Game Over';
+      overlayTitle.textContent =
+        'Game Over';
+
 
       overlayText.textContent =
-        `Hai mangiato ${score} ${score === 1 ? 'mela' : 'mele'}.`;
+        `You ate ${score} ${
+          score === 1
+            ? 'apple'
+            : 'apples'
+        }.`;
 
 
-      nameInput.style.display = 'block';
+      nameInput.style.display =
+        'block';
 
-      actionButton.textContent = 'Salva record';
+
+      actionButton.textContent =
+        'Save Score';
 
 
-      overlay.classList.remove('hidden');
+      overlay.classList.remove(
+        'hidden'
+      );
 
 
       setTimeout(() => {
@@ -2448,16 +2821,17 @@
 
 
     /* =====================================================
-       HIGH SCORES
-       SALVATAGGIO LOCALE
-    ====================================================== */
+       HIGH SCORES — LOCAL STORAGE
+    ===================================================== */
 
     function getHighScores() {
 
       try {
 
         return JSON.parse(
-          localStorage.getItem('andreaSnakeScores')
+          localStorage.getItem(
+            'andreaSnakeScores'
+          )
         ) || [];
 
       } catch (error) {
@@ -2468,6 +2842,10 @@
 
     }
 
+
+    /* =====================================================
+       SAVE SCORE
+    ===================================================== */
 
     function saveHighScore() {
 
@@ -2484,29 +2862,39 @@
       }
 
 
-      const scores = getHighScores();
+      const scores =
+        getHighScores();
 
 
       scores.push({
-        name: name.substring(0, 20),
-        score: score
-      });
 
+        name:
+          name.substring(0, 20),
 
-      scores.sort((a, b) => {
-
-        return b.score - a.score;
+        score:
+          score
 
       });
+
+
+      scores.sort(
+        (a, b) =>
+          b.score - a.score
+      );
 
 
       const topScores =
-        scores.slice(0, MAX_HIGH_SCORES);
+        scores.slice(
+          0,
+          MAX_HIGH_SCORES
+        );
 
 
       localStorage.setItem(
         'andreaSnakeScores',
-        JSON.stringify(topScores)
+        JSON.stringify(
+          topScores
+        )
       );
 
 
@@ -2516,25 +2904,32 @@
       waitingForName = false;
 
 
-      nameInput.style.display = 'none';
+      nameInput.style.display =
+        'none';
 
-      overlayTitle.textContent = 'Snake';
+
+      overlayTitle.textContent =
+        'Snake';
+
 
       overlayText.textContent =
-        'Record salvato. Prova a batterlo!';
+        'Score saved. Try to beat it!';
 
-      actionButton.textContent = 'Gioca ancora';
+
+      actionButton.textContent =
+        'Play Again';
 
     }
 
 
     /* =====================================================
        LEADERBOARD
-    ====================================================== */
+    ===================================================== */
 
     function renderLeaderboard() {
 
-      const scores = getHighScores();
+      const scores =
+        getHighScores();
 
 
       leaderboard.innerHTML = '';
@@ -2542,67 +2937,88 @@
 
       if (scores.length === 0) {
 
-        const emptyMessage =
+        const row =
           document.createElement('div');
 
-        emptyMessage.className =
+
+        row.className =
           'snake-best-row';
 
-        emptyMessage.innerHTML =
-          '<span>Nessun record</span><span>—</span>';
 
-        leaderboard.appendChild(emptyMessage);
+        row.innerHTML =
+          '<span>No scores yet</span><span>—</span>';
+
+
+        leaderboard.appendChild(
+          row
+        );
+
 
         return;
 
       }
 
 
-      scores.forEach((entry, index) => {
+      scores.forEach(
+        (entry, index) => {
 
-        const row =
-          document.createElement('div');
-
-        row.className =
-          'snake-best-row';
+          const row =
+            document.createElement('div');
 
 
-        const name =
-          document.createElement('span');
-
-        name.textContent =
-          `${index + 1}. ${entry.name}`;
+          row.className =
+            'snake-best-row';
 
 
-        const scoreValue =
-          document.createElement('span');
-
-        scoreValue.textContent =
-          entry.score;
+          const name =
+            document.createElement('span');
 
 
-        row.appendChild(name);
+          name.textContent =
+            `${index + 1}. ${entry.name}`;
 
-        row.appendChild(scoreValue);
+
+          const scoreValue =
+            document.createElement('span');
 
 
-        leaderboard.appendChild(row);
+          scoreValue.textContent =
+            entry.score;
 
-      });
+
+          row.appendChild(
+            name
+          );
+
+
+          row.appendChild(
+            scoreValue
+          );
+
+
+          leaderboard.appendChild(
+            row
+          );
+
+        }
+      );
 
     }
 
 
     /* =====================================================
-       CAMBIO DIREZIONE
-    ====================================================== */
+       CHANGE DIRECTION
+    ===================================================== */
 
-    function changeDirection(x, y) {
+    function changeDirection(
+      x,
+      y
+    ) {
 
-      if (!gameRunning) return;
+      if (!gameRunning) {
+        return;
+      }
 
-
-      /* IMPEDISCE DI TORNARE INDIETRO */
 
       if (
         x === -direction.x &&
@@ -2615,22 +3031,23 @@
 
 
       nextDirection = {
-        x: x,
-        y: y
+        x,
+        y
       };
 
     }
 
 
     /* =====================================================
-       TASTIERA
-    ====================================================== */
+       KEYBOARD CONTROLS
+    ===================================================== */
 
     document.addEventListener(
       'keydown',
       (event) => {
 
-        const key = event.key.toLowerCase();
+        const key =
+          event.key.toLowerCase();
 
 
         if (
@@ -2640,7 +3057,10 @@
 
           event.preventDefault();
 
-          changeDirection(0, -1);
+          changeDirection(
+            0,
+            -1
+          );
 
         }
 
@@ -2652,7 +3072,10 @@
 
           event.preventDefault();
 
-          changeDirection(0, 1);
+          changeDirection(
+            0,
+            1
+          );
 
         }
 
@@ -2664,7 +3087,10 @@
 
           event.preventDefault();
 
-          changeDirection(-1, 0);
+          changeDirection(
+            -1,
+            0
+          );
 
         }
 
@@ -2676,7 +3102,10 @@
 
           event.preventDefault();
 
-          changeDirection(1, 0);
+          changeDirection(
+            1,
+            0
+          );
 
         }
 
@@ -2685,8 +3114,8 @@
 
 
     /* =====================================================
-       PULSANTE START / SALVA / RIGIOCA
-    ====================================================== */
+       START / SAVE / PLAY AGAIN
+    ===================================================== */
 
     actionButton.addEventListener(
       'click',
@@ -2696,35 +3125,39 @@
 
           saveHighScore();
 
-          return;
+        } else {
+
+          startGame();
 
         }
-
-
-        startGame();
 
       }
     );
 
 
     /* =====================================================
-       MOBILE — SWIPE
-    ====================================================== */
+       MOBILE SWIPE CONTROLS
+    ===================================================== */
 
     let touchStartX = 0;
 
     let touchStartY = 0;
 
 
-    board.addEventListener(
+    canvas.addEventListener(
       'touchstart',
       (event) => {
 
-        const touch = event.changedTouches[0];
+        const touch =
+          event.changedTouches[0];
 
-        touchStartX = touch.clientX;
 
-        touchStartY = touch.clientY;
+        touchStartX =
+          touch.clientX;
+
+
+        touchStartY =
+          touch.clientY;
 
       },
       {
@@ -2733,25 +3166,32 @@
     );
 
 
-    board.addEventListener(
+    canvas.addEventListener(
       'touchend',
       (event) => {
 
-        if (!gameRunning) return;
+        if (!gameRunning) {
+          return;
+        }
 
 
-        const touch = event.changedTouches[0];
+        const touch =
+          event.changedTouches[0];
 
-        const dx =
-          touch.clientX - touchStartX;
 
-        const dy =
-          touch.clientY - touchStartY;
+        const deltaX =
+          touch.clientX -
+          touchStartX;
+
+
+        const deltaY =
+          touch.clientY -
+          touchStartY;
 
 
         if (
-          Math.abs(dx) < 20 &&
-          Math.abs(dy) < 20
+          Math.abs(deltaX) < 20 &&
+          Math.abs(deltaY) < 20
         ) {
 
           return;
@@ -2759,27 +3199,42 @@
         }
 
 
-        if (Math.abs(dx) > Math.abs(dy)) {
+        if (
+          Math.abs(deltaX) >
+          Math.abs(deltaY)
+        ) {
 
-          if (dx > 0) {
+          if (deltaX > 0) {
 
-            changeDirection(1, 0);
+            changeDirection(
+              1,
+              0
+            );
 
           } else {
 
-            changeDirection(-1, 0);
+            changeDirection(
+              -1,
+              0
+            );
 
           }
 
         } else {
 
-          if (dy > 0) {
+          if (deltaY > 0) {
 
-            changeDirection(0, 1);
+            changeDirection(
+              0,
+              1
+            );
 
           } else {
 
-            changeDirection(0, -1);
+            changeDirection(
+              0,
+              -1
+            );
 
           }
 
@@ -2793,14 +3248,14 @@
 
 
     /* =====================================================
-       INIZIALIZZAZIONE
-    ====================================================== */
+       INITIALISE
+    ===================================================== */
 
-    createBoard();
+    resizeCanvas();
 
     renderLeaderboard();
 
-    drawGame();
+    drawGame(1);
 
   </script>
 
