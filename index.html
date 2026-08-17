@@ -493,9 +493,9 @@
 
       grid-template-columns:
         minmax(250px, 1fr)
-        minmax(300px, 360px);
+        minmax(380px, 460px);
 
-      gap: 100px;
+      gap: 70px;
 
       align-items: center;
     }
@@ -627,8 +627,30 @@
        SNAKE
     ========================================================= */
 
+    /* Contenitore generale: ora dispone GIOCO e CLASSIFICA
+       affiancati (riga), invece che uno sopra l'altro. */
     .snake-column {
       width: 100%;
+
+      display: flex;
+
+      flex-direction: row;
+
+      align-items: flex-start;
+
+      justify-content: center;
+
+      gap: 26px;
+    }
+
+
+    /* Blocco sinistro: titolo + sottotitolo + punteggio + board.
+       Ha una larghezza fissa più contenuta (240px) per lasciare
+       spazio alla classifica a destra senza essere ingombrante. */
+    .snake-game {
+      width: 240px;
+
+      flex-shrink: 0;
 
       display: flex;
 
@@ -639,33 +661,33 @@
 
 
     .snake-title {
-      width: min(340px, 100%);
+      width: 100%;
 
       font-family: 'Newsreader', serif;
 
       font-weight: 500;
 
-      font-size: 2rem;
+      font-size: 1.55rem;
 
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
 
     .snake-subtitle {
-      width: min(340px, 100%);
+      width: 100%;
 
-      font-size: 0.82rem;
+      font-size: 0.76rem;
 
       color: var(--ink-soft);
 
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
 
     /* SCORE */
 
     .snake-score {
-      width: min(340px, 100%);
+      width: 100%;
 
       display: flex;
 
@@ -673,7 +695,7 @@
 
       align-items: center;
 
-      margin-bottom: 14px;
+      margin-bottom: 10px;
 
       font-size: 0.85rem;
     }
@@ -685,12 +707,12 @@
 
 
     /* GAME WRAPPER */
-    /* FIX dimensione: da 400px a 340px, così Snake è "appropriato"
-       e non troppo grande accanto alla colonna contatti. */
+    /* Dimensione ridotta a 240px: gioco compatto, in linea con
+       .snake-game, per stare comodo accanto alla classifica. */
     .snake-board-wrapper {
       position: relative;
 
-      width: min(340px, 100%);
+      width: 100%;
 
       aspect-ratio: 1 / 1;
 
@@ -834,14 +856,23 @@
        HIGH SCORES
     ========================================================= */
 
+    /* Ora è affiancata al gioco (a destra), non più sotto:
+       niente più bordo/spazio sopra, ma un bordo a sinistra che
+       separa visivamente le due colonne, con un po' di padding
+       per staccare il testo dal bordo. Ha una larghezza propria
+       fissa (140px) e prende tutta l'altezza disponibile del
+       blocco affiancato grazie ad align-items:flex-start sul
+       genitore .snake-column. */
     .snake-best {
-      width: min(340px, 100%);
+      width: 140px;
 
-      margin-top: 18px;
+      flex-shrink: 0;
 
-      padding-top: 18px;
+      padding-top: 40px;
 
-      border-top: 1px solid rgba(17,17,17,0.10);
+      padding-left: 20px;
+
+      border-left: 1px solid rgba(17,17,17,0.10);
     }
 
 
@@ -1072,12 +1103,35 @@
       }
 
 
-      .snake-title,
-      .snake-subtitle,
-      .snake-score,
-      .snake-best,
-      .snake-board-wrapper {
+      /* Sotto i 640px lo spazio orizzontale non basta per avere
+         gioco e classifica affiancati: torniamo a impilarli in
+         colonna, a piena larghezza. */
+      .snake-column {
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .snake-game {
         width: 100%;
+
+        max-width: 340px;
+      }
+
+      .snake-best {
+        width: 100%;
+
+        max-width: 340px;
+
+        margin-top: 18px;
+
+        padding-top: 18px;
+
+        padding-left: 0;
+
+        border-left: none;
+
+        border-top: 1px solid rgba(17,17,17,0.10);
       }
 
     }
@@ -1874,84 +1928,90 @@
 
       <div class="snake-column">
 
+        <!-- Blocco GIOCO: titolo, sottotitolo, punteggio e board
+             tenuti insieme così restano compatti e centrati a
+             sinistra della classifica. -->
+        <div class="snake-game">
 
-        <div class="snake-title">
-          Snake
-        </div>
-
-
-        <div class="snake-subtitle">
-          Eat the apples and get the highest score.
-        </div>
-
-
-        <div class="snake-score">
-
-          <span>
-            Score
-          </span>
-
-          <span
-            class="snake-score-value"
-            id="snake-score"
-          >
-            0
-          </span>
-
-        </div>
+          <div class="snake-title">
+            Snake
+          </div>
 
 
-        <div class="snake-board-wrapper">
-
-          <canvas
-            id="snake-canvas"
-            aria-label="Snake game"
-          ></canvas>
+          <div class="snake-subtitle">
+            Eat the apples and get the highest score.
+          </div>
 
 
-          <!-- GAME OVER / START OVERLAY -->
+          <div class="snake-score">
 
-          <div
-            class="snake-overlay"
-            id="snake-overlay"
-          >
+            <span>
+              Score
+            </span>
 
-            <div class="snake-overlay-box">
+            <span
+              class="snake-score-value"
+              id="snake-score"
+            >
+              0
+            </span>
 
-              <div
-                class="snake-overlay-title"
-                id="snake-overlay-title"
-              >
-                Snake
+          </div>
+
+
+          <div class="snake-board-wrapper">
+
+            <canvas
+              id="snake-canvas"
+              aria-label="Snake game"
+            ></canvas>
+
+
+            <!-- GAME OVER / START OVERLAY -->
+
+            <div
+              class="snake-overlay"
+              id="snake-overlay"
+            >
+
+              <div class="snake-overlay-box">
+
+                <div
+                  class="snake-overlay-title"
+                  id="snake-overlay-title"
+                >
+                  Snake
+                </div>
+
+
+                <div
+                  class="snake-overlay-text"
+                  id="snake-overlay-text"
+                >
+                  Press Start to play.
+                </div>
+
+
+                <input
+                  type="text"
+                  id="snake-name"
+                  class="snake-name-input"
+                  placeholder="Your name"
+                  maxlength="20"
+                  autocomplete="off"
+                  style="display: none;"
+                >
+
+
+                <button
+                  type="button"
+                  id="snake-action"
+                  class="snake-button"
+                >
+                  Start
+                </button>
+
               </div>
-
-
-              <div
-                class="snake-overlay-text"
-                id="snake-overlay-text"
-              >
-                Press Start to play.
-              </div>
-
-
-              <input
-                type="text"
-                id="snake-name"
-                class="snake-name-input"
-                placeholder="Your name"
-                maxlength="20"
-                autocomplete="off"
-                style="display: none;"
-              >
-
-
-              <button
-                type="button"
-                id="snake-action"
-                class="snake-button"
-              >
-                Start
-              </button>
 
             </div>
 
@@ -1960,7 +2020,7 @@
         </div>
 
 
-        <!-- HIGH SCORES -->
+        <!-- HIGH SCORES: ora a destra del gioco -->
 
         <div class="snake-best">
 
@@ -2071,7 +2131,7 @@
 
     const BOARD_SIZE = 10;
 
-    const MOVE_INTERVAL = 105;
+    const MOVE_INTERVAL = 150;
 
     const MAX_HIGH_SCORES = 5;
 
