@@ -300,7 +300,7 @@
 
 
     #resume .inner {
-      max-width: 900px;
+      max-width: 1100px;
 
       width: 100%;
     }
@@ -387,9 +387,82 @@
 
       color: var(--ink-soft);
 
-      max-width: 65ch;
+      max-width: 85ch;
     }
 
+    /* =========================================================
+   EXPERIENCE - READ MORE
+========================================================= */
+
+.experience-details {
+  margin-top: 10px;
+}
+
+.experience-details summary {
+  display: inline-block;
+
+  color: var(--green);
+
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.experience-details summary:hover {
+  opacity: 0.65;
+}
+
+.experience-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-details summary::after {
+  content: " +";
+
+  font-size: 0.9rem;
+}
+
+.experience-details[open] summary::after {
+  content: " −";
+}
+
+.experience-expanded {
+  margin-top: 16px;
+}
+
+.experience-expanded p {
+  font-size: 0.92rem;
+
+  line-height: 1.7;
+
+  color: var(--ink-soft);
+
+  margin-bottom: 14px;
+
+  max-width: 85ch;
+}
+
+.experience-expanded ul {
+  margin: 0 0 0 18px;
+
+  padding: 0;
+
+  max-width: 85ch;
+}
+
+.experience-expanded li {
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+
+  color: var(--ink-soft);
+
+  margin-bottom: 6px;
+}
 
     /* SKILLS */
 
@@ -1337,17 +1410,23 @@
         to experience different business environments and functions, gaining
         experience in both administrative and commercial activities. These
         experiences strengthened my interest in process optimisation and in
-        the use of technology as a tool to support businesses.
+        the use of technology and AI as a tool to support businesses.
         <br><br>
 
-        I am particularly interested in business development, consulting and
-        ERP solutions, where I believe that combining business knowledge,
-        analytical thinking and technology can create tangible value.
+       I am particularly analytical and interested in using data to support
+      strategic decision-making and improve business performance.
+I am also highly interested in understanding market trends, identifying
+new opportunities and finding ways to optimise and grow a business.
+At the same time, I am fascinated by consumer behaviour, persuasion and
+the different factors that influence purchasing decisions.
+I enjoy understanding what drives customers and how these insights can
+be used to build stronger relationships and create effective business
+strategies.
         <br><br>
-
-        My goal is to continue developing my skills, work in dynamic
-        environments and build a professional path that allows me to combine
-        the business and technology worlds.
+        
+My goal is to continue developing my skills, work in dynamic
+environments and build a professional path that allows me to grow
+both professionally and personally.
 
       </p>
 
@@ -1465,22 +1544,147 @@
             </div>
 
 
-            <div class="resume-place">
-              Tre Cime Srl
-            </div>
-
-
             <div class="resume-description">
 
-              Experience in business development within the HO.RE.CA.
-              sector, with activities related to commercial development
-              and the management of relationships with clients and partners.
-              The role allowed me to gain a deeper understanding of the
-              commercial dynamics of a growing company and develop skills in
-              market opportunity analysis, commercial relationship management
-              and business development.
+  As a Junior Business Analyst, I worked across Day Day Drink Srl
+  and Tre Cime Srl, supporting business development, data analysis,
+  ERP management and day-to-day operations. I worked closely with
+  suppliers, customers and the company's management, combining
+  analytical activities with commercial and operational responsibilities.
 
-            </div>
+  <details class="experience-details">
+
+    <summary>
+      Read more
+    </summary>
+
+    <div class="experience-expanded">
+
+      <p>
+        Day Day Drink focused primarily on coffee roasting and the
+        distribution of coffee-related products and equipment for the
+        HO.RE.CA. sector, including coffee machines, grinders,
+        water softeners, ice makers and other professional equipment.
+        Tre Cime Srl operated as a complementary business, progressively
+        expanding its offering to products such as brioche, snacks and
+        beverages while developing relationships with a growing network
+        of suppliers and customers.
+      </p>
+
+
+      <p>
+        I analysed sales, purchasing, pricing and margin data to support
+        business decisions and monitored key indicators related to sales
+        performance, inventory and profitability. I created Excel reports
+        and dashboards using Pivot Tables, XLOOKUP and SUMIFS, and used
+        data analysis to identify anomalies, pricing opportunities and
+        areas for operational improvement.
+      </p>
+
+
+      <p>
+        I was responsible for the management and optimisation of the
+        company's Odoo ERP environment, working across the Sales, Purchase,
+        Inventory and Accounting modules. I configured and improved
+        workflows, managed product data and supported the use of the
+        multi-company environment shared by Day Day Drink, Tre Cime and
+        the related business activities.
+      </p>
+
+
+      <p>
+        I regularly prepared and cleaned large datasets for ERP
+        import/export activities. Supplier price lists and product
+        information were processed in Excel and transformed into files
+        suitable for mass import into Odoo. I also used test databases
+        to validate updated datasets before introducing them into the
+        main environment.
+      </p>
+
+
+      <p>
+        I managed invoice control activities, including reconciliation,
+        verification of electronic invoices and checking the status of
+        documents through the SDI system. I also supported administrative
+        activities related to customer and supplier documentation.
+      </p>
+
+
+      <p>
+        On the commercial side, I conducted market and competitor analysis,
+        visited potential customers and compared their purchasing
+        conditions and supplier prices in order to identify opportunities
+        and develop competitive commercial proposals. I also supported
+        supplier research, initial contact, relationship management and
+        commercial negotiations.
+      </p>
+
+
+      <p>
+        I worked with suppliers and technical partners regarding deliveries,
+        equipment and customer issues, acting as an intermediary when
+        technical intervention was required. I also supported logistics
+        activities, including warehouse operations, product handling,
+        packaging and coordination with couriers.
+      </p>
+
+
+      <p>
+        I supported the development of the company's commercial network,
+        including activities related to coffee, brioche and other
+        complementary HO.RE.CA. products. This included contacting bars,
+        retailers and potential partners, evaluating their needs and
+        identifying suitable products and commercial opportunities.
+      </p>
+
+
+      <ul>
+
+        <li>
+          Analysed sales, purchasing, pricing and margin data to support
+          business decisions.
+        </li>
+
+        <li>
+          Created Excel reports and dashboards using Pivot Tables,
+          XLOOKUP and SUMIFS.
+        </li>
+
+        <li>
+          Monitored KPIs related to sales performance, inventory and
+          profitability.
+        </li>
+
+        <li>
+          Managed and optimised Odoo ERP modules including Sales, Purchase,
+          Inventory and Accounting.
+        </li>
+
+        <li>
+          Prepared and cleaned data for ERP import and export activities.
+        </li>
+
+        <li>
+          Performed invoice reconciliation and supported electronic
+          invoicing processes.
+        </li>
+
+        <li>
+          Conducted market and competitor analysis to identify business
+          opportunities.
+        </li>
+
+        <li>
+          Supported supplier evaluation and commercial negotiations.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </details>
+
+</div>
 
           </div>
 
