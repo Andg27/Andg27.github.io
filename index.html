@@ -399,17 +399,29 @@
 }
 
 .experience-details summary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 12px;
 
   color: var(--green);
 
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 600;
 
   cursor: pointer;
 
   list-style: none;
 
-  transition: opacity 0.3s ease;
+  padding-bottom: 3px;
+
+  border-bottom: 1px solid var(--green);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .experience-details summary:hover {
@@ -421,13 +433,15 @@
 }
 
 .experience-details summary::after {
-  content: " +";
+  content: "→";
 
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+
+  transition: transform 0.25s ease;
 }
 
 .experience-details[open] summary::after {
-  content: " −";
+  content: "↑";
 }
 
 .experience-expanded {
@@ -1544,13 +1558,13 @@ both professionally and personally.
             </div>
 
 
-            <div class="resume-description">
+<div class="resume-description">
 
-  As a Junior Business Analyst, I worked across Day Day Drink Srl
-  and Tre Cime Srl, supporting business development, data analysis,
-  ERP management and day-to-day operations. I worked closely with
-  suppliers, customers and the company's management, combining
-  analytical activities with commercial and operational responsibilities.
+  As a Junior Business Analyst, I worked across Day Day Drink Srl and
+  Tre Cime Srl, supporting business development, data analysis, ERP
+  management and day-to-day operations. I worked closely with suppliers,
+  customers and management, combining analytical activities with
+  commercial and operational responsibilities.
 
   <details class="experience-details">
 
@@ -1712,14 +1726,48 @@ both professionally and personally.
 
             <div class="resume-description">
 
-              Experience in accounting and administrative activities,
-              supporting accounting processes and the management of company
-              documentation. The role allowed me to develop accuracy,
-              organisation and familiarity with key administrative processes,
-              while gaining a more practical understanding of the
-              financial management of a business.
+  Experience in accounting and administrative activities, supporting
+  accounting processes and the management of company documentation.
+  The role allowed me to develop accuracy, organisation and familiarity
+  with key administrative processes, while gaining a more practical
+  understanding of the financial management of a business.
 
-            </div>
+  <details class="experience-details">
+
+    <summary>
+      Read more
+    </summary>
+
+    <div class="experience-expanded">
+
+      <ul>
+
+        <li>
+          Processed sales and purchase invoices using accounting software
+          (Profis).
+        </li>
+
+        <li>
+          Recorded accounting data and managed administrative
+          documentation.
+        </li>
+
+        <li>
+          Supported electronic invoicing, payments and bank reconciliation
+          activities.
+        </li>
+
+        <li>
+          Used Excel for data analysis and verification.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </details>
+
+</div>
 
           </div>
 
@@ -1758,10 +1806,49 @@ both professionally and personally.
 
             <div class="resume-description">
 
-              Bachelor's degree focused on business administration,
-              management and economics.
+  Bachelor's degree focused on business administration, management and
+  economics, with an academic focus on statistics, data analysis and
+  quantitative methods applied to business.
 
-            </div>
+  <details class="experience-details">
+
+    <summary>
+      Read more
+    </summary>
+
+    <div class="experience-expanded">
+
+      <p>
+        The programme also provided foundations in coding and artificial
+        intelligence, with a strong emphasis on quantitative approaches
+        to business analysis and decision-making.
+      </p>
+
+      <ul>
+
+        <li>
+          Statistics and Applied Statistics — RStudio
+        </li>
+
+        <li>
+          Quantitative Business Methods
+        </li>
+
+        <li>
+          Coding and Fundamentals of Artificial Intelligence — Python
+        </li>
+
+        <li>
+          General and Financial Mathematics
+        </li>
+
+      </ul>
+
+    </div>
+
+  </details>
+
+</div>
 
           </div>
 
